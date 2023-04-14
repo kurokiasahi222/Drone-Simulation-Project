@@ -53,10 +53,14 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
     available = false;
     pickedUp = false;
 
+    // notification: heading to pick up RobotX
+
     destination = nearestEntity->GetPosition();
     Vector3 finalDestination = nearestEntity->GetDestination();
 
     toRobot = new BeelineStrategy(position, destination);
+
+    // notification: picked up 
 
     std::string strat = nearestEntity->GetStrategyName();
     if (strat == "astar")
@@ -99,6 +103,8 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
       nearestEntity = nullptr;
       available = true;
       pickedUp = false;
+
+      // notification: dropped off 
     }
   }
 }
@@ -125,25 +131,5 @@ void Drone::Jump(double height) {
   }
 }
 
-void Attach(IObserver *observer) override {
-  list_observer_.push_back(observer);
-}
 
-void Detach(IObserver *observer) override {
-  list_observer_.remove(observer);
-}
-
-// call this upon arrival, delivery, whatever we want for notifs
-void CreateMessage(std::string message = "Empty") {
-  this->message_ = message;
-  Notify();
-}
-
-void Notify() override {
-  std::list<IObserver *>::iterator iterator = list_observer_.begin();
-  while (iterator != list_observer_.end()) {
-    (*iterator)->Update(message_);
-    ++iterator;
-  }
-}
 

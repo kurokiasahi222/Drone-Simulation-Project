@@ -166,15 +166,10 @@ class IEntity {
   }
 
   // call this upon arrival, delivery, whatever we want for notifs
-  void CreateMessage(std::string message = "Empty") {
-    this->message_ = message;
-    Notify();
-  }
-
-  void Notify() override {
+  void Notify(std::string message = "Empty") {
     std::list<IObserver *>::iterator iterator = list_observer_.begin();
     while (iterator != list_observer_.end()) {
-      (*iterator)->Update(message_);
+      (*iterator)->Update(message);
       ++iterator;
     }
   }
@@ -185,7 +180,6 @@ class IEntity {
   const IGraph* graph;
 
   std::list<IObserver *> list_observer_;
-  std::string message_;
 };
 
 #endif
