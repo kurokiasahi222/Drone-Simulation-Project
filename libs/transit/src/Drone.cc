@@ -103,7 +103,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
   
   collector->addData(data);
 }
-//May want to make this official, or add other things
+
 std::vector<std::string> Drone::getData(){
   std::vector<std::string> data = {};
   data.push_back(details["type"]);
@@ -113,6 +113,7 @@ std::vector<std::string> Drone::getData(){
   data.push_back(std::to_string(speed));
   data.push_back(available ? "1" : "0");
   data.push_back(pickedUp ? "1" : "0");
+  return data;
 }
 
 void Drone::Rotate(double angle) {
