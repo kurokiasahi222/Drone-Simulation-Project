@@ -155,9 +155,31 @@ class IEntity {
     return ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
   }
 
+
+
+  void Attach(IObserver *observer) {
+    list_observer_.push_back(observer);
+  }
+
+  void Detach(IObserver *observer) {
+    list_observer_.remove(observer);
+  }
+
+  // call this upon arrival, delivery, whatever we want for notifs
+  void Notify(std::string message = "Empty") {
+    std::list<IObserver *>::iterator iterator = list_observer_.begin();
+    while (iterator != list_observer_.end()) {
+      (*iterator)->Update(message);
+      ++iterator;
+    }
+  }
+
+
  protected:
   int id;
   const IGraph* graph;
+
+  std::list<IObserver *> list_observer_;
 };
 
 #endif
