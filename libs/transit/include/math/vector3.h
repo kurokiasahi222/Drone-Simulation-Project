@@ -100,6 +100,11 @@ class Vector3 {
    * @brief Prints vector to nicely formatted string
    */
   void Print();
+
+  /**
+   * @brief Returns formatted string for putting into csv
+  */
+  std::string toString();
 };
 
 #endif  // Vector3_H_

@@ -140,6 +140,8 @@ class Drone : public IEntity {
   IEntity* nearestEntity = nullptr;
   IStrategy* toRobot = nullptr;
   IStrategy* toFinalDestination = nullptr;
+
+  std::vector<std::string> getData();
 };
 
 #endif

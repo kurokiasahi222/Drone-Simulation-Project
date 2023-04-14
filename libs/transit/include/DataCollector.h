@@ -7,12 +7,7 @@
 class DataCollector {
     public:
         //It's what makes a singleton, a singleton
-        static DataCollector* getInstance(){
-            if (instance == nullptr){
-                instance = new DataCollector();
-            }
-            return instance;
-        }
+        static DataCollector* getInstance();
 
         //Can change input parameters if needed
         void addData(std::vector<std::string> newData);
@@ -35,5 +30,10 @@ class DataCollector {
 
 DataCollector* instance = nullptr;
 
-
+DataCollector* DataCollector::getInstance(){
+    if (instance == nullptr){
+        instance = new DataCollector();
+    }
+    return instance;
+}
 #endif
