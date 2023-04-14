@@ -126,15 +126,6 @@ class Drone : public IEntity {
   Drone(const Drone& drone) = delete;
   Drone& operator=(const Drone& drone) = delete;
 
-
-
-  void Attach(IObserver *observer);
-  void Detach(IObserver *observer);
-  void CreateMessage(std::string message);
-  void Notify();
-
-
-
  private:
   JsonObject details;
   Vector3 position;
@@ -149,10 +140,6 @@ class Drone : public IEntity {
   IEntity* nearestEntity = nullptr;
   IStrategy* toRobot = nullptr;
   IStrategy* toFinalDestination = nullptr;
-
-
-  std::list<IObserver *> list_observer_;
-  std::string message_;
 };
 
 #endif

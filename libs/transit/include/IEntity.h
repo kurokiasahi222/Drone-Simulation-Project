@@ -155,14 +155,37 @@ class IEntity {
     return ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
   }
 
-  // added
-  virtual void Attach(IObserver *observer) {}
-  virtual void Detach(IObserver *observer) {}
-  virtual void Notify() {}
+
+
+  void Attach(IObserver *observer) {
+    list_observer_.push_back(observer);
+  }
+
+  void Detach(IObserver *observer) {
+    list_observer_.remove(observer);
+  }
+
+  // call this upon arrival, delivery, whatever we want for notifs
+  void CreateMessage(std::string message = "Empty") {
+    this->message_ = message;
+    Notify();
+  }
+
+  void Notify() override {
+    std::list<IObserver *>::iterator iterator = list_observer_.begin();
+    while (iterator != list_observer_.end()) {
+      (*iterator)->Update(message_);
+      ++iterator;
+    }
+  }
+
 
  protected:
   int id;
   const IGraph* graph;
+
+  std::list<IObserver *> list_observer_;
+  std::string message_;
 };
 
 #endif
