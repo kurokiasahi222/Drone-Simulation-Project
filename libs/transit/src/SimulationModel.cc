@@ -35,6 +35,10 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   IEntity* myNewEntity = compFactory->CreateEntity(entity);
   myNewEntity->SetGraph(graph);
 
+  //
+  IObserver* observer = new Observer(myNewEntity);
+  myNewEntity->Attach(*observer);
+
   // Call AddEntity to add it to the view
   controller.AddEntity(*myNewEntity);
   entities.push_back(myNewEntity);

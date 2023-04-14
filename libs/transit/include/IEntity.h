@@ -155,6 +155,11 @@ class IEntity {
     return ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
   }
 
+  // added
+  virtual void Attach(IObserver *observer) {}
+  virtual void Detach(IObserver *observer) {}
+  virtual void Notify() {}
+
  protected:
   int id;
   const IGraph* graph;

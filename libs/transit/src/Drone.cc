@@ -23,6 +23,11 @@ Drone::Drone(JsonObject& obj) : details(obj) {
 }
 
 Drone::~Drone() {
+  std::list<IObserver *>::iterator iterator = list_observer_.begin();
+  while (iterator != list_observer_.end()) {
+    Detach(iterator);
+  }
+
   // Delete dynamically allocated variables
   delete graph;
   delete nearestEntity;
@@ -119,3 +124,26 @@ void Drone::Jump(double height) {
     }
   }
 }
+
+void Attach(IObserver *observer) override {
+  list_observer_.push_back(observer);
+}
+
+void Detach(IObserver *observer) override {
+  list_observer_.remove(observer);
+}
+
+// call this upon arrival, delivery, whatever we want for notifs
+void CreateMessage(std::string message = "Empty") {
+  this->message_ = message;
+  Notify();
+}
+
+void Notify() override {
+  std::list<IObserver *>::iterator iterator = list_observer_.begin();
+  while (iterator != list_observer_.end()) {
+    (*iterator)->Update(message_);
+    ++iterator;
+  }
+}
+
