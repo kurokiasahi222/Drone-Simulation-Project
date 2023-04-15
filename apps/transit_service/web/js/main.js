@@ -107,6 +107,9 @@ $( document ).ready(function() {
         if (data.event == "observe") {
           displayNotification(data.details);
         }
+        if (data.event == "DisplayNotification") {
+          displayNotification(data.details.message);
+        }
       }
     }
   }

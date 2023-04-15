@@ -37,7 +37,7 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
 
   //
   IObserver* observer = new Observer(myNewEntity);
-  myNewEntity->Attach(*observer);
+  myNewEntity->Attach(observer);
 
   // Call AddEntity to add it to the view
   controller.AddEntity(*myNewEntity);

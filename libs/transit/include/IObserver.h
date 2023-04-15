@@ -1,5 +1,5 @@
-#ifndef OBSERVER_H_
-#define OBSERVER_H_
+#ifndef IOBSERVER_H_
+#define IOBSERVER_H_
 
 #include <iostream>
 #include <list>
