@@ -23,10 +23,7 @@ Drone::Drone(JsonObject& obj) : details(obj) {
 }
 
 Drone::~Drone() {
-  std::list<IObserver *>::iterator iterator = list_observer_.begin();
-  while (iterator != list_observer_.end()) {
-    Detach(iterator);
-  }
+  this->IEntity::~IEntity();
 
   // Delete dynamically allocated variables
   delete graph;
@@ -52,26 +49,30 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
     nearestEntity->SetAvailability(false);
     available = false;
     pickedUp = false;
+    hasNotifiedTraveling = false;
 
     // notification: heading to pick up RobotX
+    std::string notif = this.details["name"] + " is on the way to pick up " + nearestEntity->GetDetails["name"];
+    Notify(notif);
 
     destination = nearestEntity->GetPosition();
     Vector3 finalDestination = nearestEntity->GetDestination();
 
     toRobot = new BeelineStrategy(position, destination);
 
-    // notification: picked up 
-
     std::string strat = nearestEntity->GetStrategyName();
-    if (strat == "astar")
+    if (strat == "astar") 
       toFinalDestination =
         new JumpDecorator(new AstarStrategy(destination, finalDestination, graph));
+
     else if (strat == "dfs")
       toFinalDestination =
         new SpinDecorator(new JumpDecorator(new DfsStrategy(destination, finalDestination, graph)));
+
     else if (strat == "dijkstra")
       toFinalDestination =
         new JumpDecorator(new SpinDecorator(new DijkstraStrategy(destination, finalDestination, graph)));
+
     else
       toFinalDestination = new BeelineStrategy(destination, finalDestination);
   }
@@ -85,11 +86,20 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
     toRobot->Move(this, dt);
 
     if (toRobot->IsCompleted()) {
+      // notification: picked up 
+      notif = details["name"] + " has picked up " + nearestEntity->GetDetails["name"];
+      Notify(notif);
+
       delete toRobot;
       toRobot = nullptr;
       pickedUp = true;
     }
   } else if (toFinalDestination) {
+    if (!hasNotifiedTraveling) {
+      std::string notif = details["name"] + " is delivering " + nearestEntity->GetDetails["name"] + " using " + nearestEntity->GetStrategyName() + " strategy";
+      Notify(notif);
+      hasNotifiedTraveling = true;
+    }
     toFinalDestination->Move(this, dt);
 
     if (nearestEntity && pickedUp) {
@@ -98,13 +108,15 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
     }
 
     if (toFinalDestination->IsCompleted()) {
+      // notification: dropped off 
+      std::string notif = details["name"] + " has dropped off " + nearestEntity->GetDetails["name"];
+      Notify(notif);
+
       delete toFinalDestination;
       toFinalDestination = nullptr;
       nearestEntity = nullptr;
       available = true;
       pickedUp = false;
-
-      // notification: dropped off 
     }
   }
 }

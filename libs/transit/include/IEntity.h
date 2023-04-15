@@ -32,7 +32,13 @@ class IEntity {
   /**
    * @brief Virtual destructor for IEntity.
    */
-  virtual ~IEntity() { delete graph; }
+  virtual ~IEntity() {
+    std::list<IObserver *>::iterator iterator = list_observer_.begin();
+    while (iterator != list_observer_.end()) {
+      Detach(iterator);
+    }
+    delete graph; 
+  }
 
   /**
    * @brief Gets the ID of the entity.
