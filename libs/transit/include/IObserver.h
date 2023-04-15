@@ -10,7 +10,7 @@ class IObserver
 {
 public:
     virtual ~IObserver(){};
-    virtual void Update(const std::string &message_from_subject) = 0;
+    virtual void Update(const std::string &message) = 0;
 };
 
 #endif
