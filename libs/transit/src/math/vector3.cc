@@ -34,3 +34,7 @@ void Vector3::Print() {
   std::cout << "[" << this->x << ", " << this->y << ", " << this->z << "]"
             << std::endl;
 }
+
+std::string Vector3::toString(){
+  return "[" + std::to_string(this->x) +" "+std::to_string(this->y)+" "+std::to_string(this->z)+"]";
+}
