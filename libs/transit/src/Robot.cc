@@ -13,10 +13,7 @@ Robot::Robot(JsonObject &obj) : details(obj) {
   Notify(notif);
 }
 
-Robot::~Robot() {
-  this->IEntity::~IEntity();
-}
-
+Robot::~Robot() {}
 
 JsonObject Robot::GetDetails() const { return details; }
 

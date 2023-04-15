@@ -23,8 +23,6 @@ Drone::Drone(JsonObject& obj) : details(obj) {
 }
 
 Drone::~Drone() {
-  this->IEntity::~IEntity();
-
   // Delete dynamically allocated variables
   delete graph;
   delete nearestEntity;
