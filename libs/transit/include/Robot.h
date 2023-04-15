@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "IEntity.h"
+#include "DataCollector.h"
 #include "math/vector3.h"
 #include "util/json.h"
 
@@ -70,6 +71,9 @@ class Robot : public IEntity {
    */
   std::string GetStrategyName() const { return strategyName; }
 
+
+  void Update(double dt, std::vector<IEntity*> scheduler);
+
   /**
    * @brief Set the Strategy Name
    *
@@ -117,6 +121,8 @@ class Robot : public IEntity {
   float speed;
   bool available;
   std::string strategyName;
+
+  std::vector<std::string> getData();
 };
 
 #endif  // ROBOT_H

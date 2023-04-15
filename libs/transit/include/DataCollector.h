@@ -28,12 +28,5 @@ class DataCollector {
         std::vector<std::vector<std::string>> data;
 };
 
-DataCollector* instance = nullptr;
 
-DataCollector* DataCollector::getInstance(){
-    if (instance == nullptr){
-        instance = new DataCollector();
-    }
-    return instance;
-}
 #endif
