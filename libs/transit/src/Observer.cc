@@ -1,4 +1,4 @@
-#include "IEntityOberver.h"
+#include "IEntityObserver.h"
 
 class Observer : public IObserver {
   public:
