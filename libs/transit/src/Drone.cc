@@ -50,7 +50,7 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
     hasNotifiedTraveling = false;
 
     // notification: heading to pick up RobotX
-    std::string notif = this.details["name"] + " is on the way to pick up " + nearestEntity->GetDetails["name"];
+    std::string notif = details["name"].asString() + " is on the way to pick up " + nearestEntity->GetDetails()["name"].asString();
     Notify(notif);
 
     destination = nearestEntity->GetPosition();
@@ -85,7 +85,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
 
     if (toRobot->IsCompleted()) {
       // notification: picked up 
-      notif = details["name"] + " has picked up " + nearestEntity->GetDetails["name"];
+      notif = details["name"].asString() + " has picked up " + nearestEntity->GetDetails()["name"].asString();
       Notify(notif);
 
       delete toRobot;
@@ -94,7 +94,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
     }
   } else if (toFinalDestination) {
     if (!hasNotifiedTraveling) {
-      std::string notif = details["name"] + " is delivering " + nearestEntity->GetDetails["name"] + " using " + nearestEntity->GetStrategyName() + " strategy";
+      std::string notif = details["name"].asString() + " is delivering " + nearestEntity->GetDetails()["name"].asString() + " using " + nearestEntity->GetStrategyName() + " strategy";
       Notify(notif);
       hasNotifiedTraveling = true;
     }
@@ -107,7 +107,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
 
     if (toFinalDestination->IsCompleted()) {
       // notification: dropped off 
-      std::string notif = details["name"] + " has dropped off " + nearestEntity->GetDetails["name"];
+      std::string notif = details["name"].asString() + " has dropped off " + nearestEntity->GetDetails()["name"].asString();
       Notify(notif);
 
       delete toFinalDestination;
