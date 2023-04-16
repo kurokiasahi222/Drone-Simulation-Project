@@ -9,14 +9,11 @@ Robot::Robot(JsonObject &obj) : details(obj) {
   available = true;
 
   // notification: robotX created, waiting to be picked up // name from the details
-  std::string notif = details["name"] + " is waiting to be picked up";
+  std::string notif = details["name"].ToString() + " is waiting to be picked up";
   Notify(notif);
 }
 
-Robot::~Robot() {
-  this->IEntity::~IEntity();
-}
-
+Robot::~Robot() {}
 
 JsonObject Robot::GetDetails() const { return details; }
 

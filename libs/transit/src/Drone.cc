@@ -23,8 +23,6 @@ Drone::Drone(JsonObject& obj) : details(obj) {
 }
 
 Drone::~Drone() {
-  this->IEntity::~IEntity();
-
   // Delete dynamically allocated variables
   delete graph;
   delete nearestEntity;
@@ -52,7 +50,7 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
     hasNotifiedTraveling = false;
 
     // notification: heading to pick up RobotX
-    std::string notif = this.details["name"] + " is on the way to pick up " + nearestEntity->GetDetails["name"];
+    std::string notif = details["name"].ToString() + " is on the way to pick up " + nearestEntity->GetDetails()["name"].ToString();
     Notify(notif);
 
     destination = nearestEntity->GetPosition();
@@ -87,7 +85,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
 
     if (toRobot->IsCompleted()) {
       // notification: picked up 
-      notif = details["name"] + " has picked up " + nearestEntity->GetDetails["name"];
+      std::string notif = details["name"].ToString() + " has picked up " + nearestEntity->GetDetails()["name"].ToString();
       Notify(notif);
 
       delete toRobot;
@@ -96,7 +94,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
     }
   } else if (toFinalDestination) {
     if (!hasNotifiedTraveling) {
-      std::string notif = details["name"] + " is delivering " + nearestEntity->GetDetails["name"] + " using " + nearestEntity->GetStrategyName() + " strategy";
+      std::string notif = details["name"].ToString() + " is delivering " + nearestEntity->GetDetails()["name"].ToString() + " using " + nearestEntity->GetStrategyName() + " strategy";
       Notify(notif);
       hasNotifiedTraveling = true;
     }
@@ -109,7 +107,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
 
     if (toFinalDestination->IsCompleted()) {
       // notification: dropped off 
-      std::string notif = details["name"] + " has dropped off " + nearestEntity->GetDetails["name"];
+      std::string notif = details["name"].ToString() + " has dropped off " + nearestEntity->GetDetails()["name"].ToString();
       Notify(notif);
 
       delete toFinalDestination;

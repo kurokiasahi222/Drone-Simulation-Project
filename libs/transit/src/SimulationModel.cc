@@ -4,6 +4,7 @@
 #include "RobotFactory.h"
 #include "HumanFactory.h"
 #include "HelicopterFactory.h"
+#include "Observer.h"
 
 SimulationModel::SimulationModel(IController& controller)
     : controller(controller) {
@@ -36,8 +37,8 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   myNewEntity->SetGraph(graph);
 
   //
-  IObserver* observer = new Observer(myNewEntity);
-  myNewEntity->Attach(*observer);
+  IObserver* observer = new Observer(controller);
+  myNewEntity->Attach(observer);
 
   // Call AddEntity to add it to the view
   controller.AddEntity(*myNewEntity);

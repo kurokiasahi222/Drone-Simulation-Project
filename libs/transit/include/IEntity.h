@@ -6,6 +6,8 @@
 #include "graph.h"
 #include "math/vector3.h"
 #include "util/json.h"
+#include "IObserver.h"
+#include <list>
 
 using namespace routing;
 
@@ -33,14 +35,15 @@ class IEntity {
    * @brief Virtual destructor for IEntity.
    */
   virtual ~IEntity() {
-    std::list<IObserver *>::iterator iterator = list_observer_.begin();
-    while (iterator != list_observer_.end()) {
-      Detach(iterator);
+    for (auto it = list_observer_.begin(); it != list_observer_.end(); ++it) {
+      delete *it;
     }
+    list_observer_.clear();
+
     delete graph; 
   }
 
-  /**
+/**
    * @brief Gets the ID of the entity.
    * @return The ID of the entity.
    */
