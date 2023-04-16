@@ -6,9 +6,7 @@
 
 class Observer : public IObserver {
   public:
-    Observer(IController& controller) {
-        controller_ = controller;
-    }
+    Observer(IController& controller) : controller_(controller) {}
 
     virtual ~Observer() {}
 
