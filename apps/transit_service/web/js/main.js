@@ -108,6 +108,8 @@ $( document ).ready(function() {
           displayNotification(data.details);
         }
         if (data.event == "DisplayNotification") {
+          console.log('notification')
+          console.log(data)
           displayNotification(data.details.message);
         }
       }
