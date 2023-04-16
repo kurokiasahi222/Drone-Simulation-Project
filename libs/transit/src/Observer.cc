@@ -2,6 +2,6 @@
 
  void Observer::Update(const std::string& message) {
   JsonObject details;
-  details["message"] = message;
-  controller_.SendEventToView("DisplayNotification", details);
+  details["info"] = message + "\n";
+  controller_.SendEventToView("observe", details);
  };
