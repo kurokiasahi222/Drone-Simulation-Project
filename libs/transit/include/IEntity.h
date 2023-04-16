@@ -6,6 +6,8 @@
 #include "graph.h"
 #include "math/vector3.h"
 #include "util/json.h"
+#include "IObserver.h"
+#include <list>
 
 using namespace routing;
 
