@@ -6,16 +6,16 @@
 
 class Observer : public IObserver {
   public:
-    Observer(IController* controller) {
+    Observer(IController& controller) {
         controller_ = controller;
     }
 
     virtual ~Observer() {}
 
-    void Update(const std::string &message) override;
+    void Update(const std::string& message) override;
 
   private:
-    IController* controller_;
+    IController& controller_;
 };
 
 #endif

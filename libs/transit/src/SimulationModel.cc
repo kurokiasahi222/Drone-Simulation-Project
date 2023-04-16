@@ -37,7 +37,7 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   myNewEntity->SetGraph(graph);
 
   //
-  IObserver* observer = new Observer(myNewEntity);
+  IObserver* observer = new Observer(controller);
   myNewEntity->Attach(observer);
 
   // Call AddEntity to add it to the view
