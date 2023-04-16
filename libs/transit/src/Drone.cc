@@ -85,7 +85,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
 
     if (toRobot->IsCompleted()) {
       // notification: picked up 
-      notif = details["name"].ToString() + " has picked up " + nearestEntity->GetDetails()["name"].ToString();
+      std::string notif = details["name"].ToString() + " has picked up " + nearestEntity->GetDetails()["name"].ToString();
       Notify(notif);
 
       delete toRobot;
