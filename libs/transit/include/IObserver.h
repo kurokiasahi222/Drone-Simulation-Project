@@ -4,7 +4,6 @@
 #include <iostream>
 #include <list>
 #include <string>
-#include "IController.h"
 
 class IObserver
 {
