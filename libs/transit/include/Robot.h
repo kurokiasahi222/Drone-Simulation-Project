@@ -110,7 +110,7 @@ class Robot : public IEntity {
   void Rotate(double angle);
 
  private:
-  JsonObject details; 
+  JsonObject details;
   Vector3 position;
   Vector3 direction;
   Vector3 destination;

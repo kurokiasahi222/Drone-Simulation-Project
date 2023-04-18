@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "graph.h"
+#include "stdlib.h"
 #include "math/vector3.h"
 #include "util/json.h"
 #include "IObserver.h"
@@ -40,7 +41,7 @@ class IEntity {
     }
     list_observer_.clear();
 
-    delete graph; 
+    delete graph;
   }
 
 /**
@@ -167,7 +168,8 @@ class IEntity {
    * @return Random float
    */
   virtual float Random(float Min, float Max) {
-    return ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
+    return ((static_cast<float>(random())
+            / static_cast<float>(RAND_MAX)) * (Max - Min)) + Min;
   }
 
   /**
@@ -190,9 +192,10 @@ class IEntity {
 
   /**
    * @brief Iterates through entity's list of observers 
-   *        calls each observer's Update function with a string message
+   * calls each observer's Update function with a string message
    * @param message string passed into each observers Update function
-   */  void Notify(std::string message = "Empty") {
+   */  
+  void Notify(std::string message = "Empty") {
     std::list<IObserver *>::iterator iterator = list_observer_.begin();
     while (iterator != list_observer_.end()) {
       (*iterator)->Update(message);

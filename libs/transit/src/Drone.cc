@@ -50,7 +50,9 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
     hasNotifiedTraveling = false;
 
     // notification: heading to pick up RobotX
-    std::string notif = details["name"].ToString() + " is on the way to pick up " + nearestEntity->GetDetails()["name"].ToString();
+    std::string notif = details["name"].ToString()
+                        + " is on the way to pick up "
+                        + nearestEntity->GetDetails()["name"].ToString();
     Notify(notif);
 
     destination = nearestEntity->GetPosition();
@@ -59,17 +61,22 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
     toRobot = new BeelineStrategy(position, destination);
 
     std::string strat = nearestEntity->GetStrategyName();
-    if (strat == "astar") 
+    if (strat == "astar")
       toFinalDestination =
-        new JumpDecorator(new AstarStrategy(destination, finalDestination, graph));
+        new JumpDecorator(new AstarStrategy(
+                          destination, finalDestination, graph));
 
     else if (strat == "dfs")
       toFinalDestination =
-        new SpinDecorator(new JumpDecorator(new DfsStrategy(destination, finalDestination, graph)));
+        new SpinDecorator(new JumpDecorator(
+                          new DfsStrategy(
+                          destination, finalDestination, graph)));
 
     else if (strat == "dijkstra")
       toFinalDestination =
-        new JumpDecorator(new SpinDecorator(new DijkstraStrategy(destination, finalDestination, graph)));
+        new JumpDecorator(new SpinDecorator(
+                          new DijkstraStrategy(
+                          destination, finalDestination, graph)));
 
     else
       toFinalDestination = new BeelineStrategy(destination, finalDestination);
@@ -85,7 +92,9 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
 
     if (toRobot->IsCompleted()) {
       // notification: picked up RobotX
-      std::string notif = details["name"].ToString() + " has picked up " + nearestEntity->GetDetails()["name"].ToString();
+      std::string notif = details["name"].ToString()
+                          + " has picked up "
+                          + nearestEntity->GetDetails()["name"].ToString();
       Notify(notif);
 
       delete toRobot;
@@ -95,7 +104,10 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
   } else if (toFinalDestination) {
     // notification: travelling to final destination
     if (!hasNotifiedTraveling) {
-      std::string notif = details["name"].ToString() + " is delivering " + nearestEntity->GetDetails()["name"].ToString() + " using " + nearestEntity->GetStrategyName() + " strategy";
+      std::string notif = details["name"].ToString() + " is delivering "
+                          + nearestEntity->GetDetails()["name"].ToString()
+                          + " using " + nearestEntity->GetStrategyName()
+                          + " strategy";
       Notify(notif);
       hasNotifiedTraveling = true;
     }
@@ -109,7 +121,8 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
 
     if (toFinalDestination->IsCompleted()) {
       // notification: dropped off robotX
-      std::string notif = details["name"].ToString() + " has dropped off " + nearestEntity->GetDetails()["name"].ToString();
+      std::string notif = details["name"].ToString() + " has dropped off "
+                          + nearestEntity->GetDetails()["name"].ToString();
       Notify(notif);
 
       delete toFinalDestination;

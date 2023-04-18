@@ -26,8 +26,8 @@ void Human::CreateNewDestination() {
 }
 
 void Human::Update(double dt, std::vector<IEntity*> scheduler) {
-    if(toDestination) {
-        if(toDestination->IsCompleted()) {
+    if (toDestination) {
+        if (toDestination->IsCompleted()) {
             CreateNewDestination();
         } else {
             toDestination->Move(this, dt);

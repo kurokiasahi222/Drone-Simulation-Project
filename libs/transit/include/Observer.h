@@ -5,15 +5,15 @@
 #include "IController.h"
 
 class Observer : public IObserver {
-  public:
-    Observer(IController& controller) : controller_(controller) {}
+ public:
+  Observer(IController& controller) : controller_(controller) {}
 
-    virtual ~Observer() {}
+  virtual ~Observer() {}
 
-    void Update(const std::string& message) override;
+  void Update(const std::string& message) override;
 
-  private:
-    IController& controller_;
+ private:
+  IController& controller_;
 };
 
 #endif

@@ -8,8 +8,10 @@ Robot::Robot(JsonObject &obj) : details(obj) {
   speed = obj["speed"];
   available = true;
 
-  // notification: robotX created, waiting to be picked up // name from the details
-  std::string notif = details["name"].ToString() + " is waiting to be picked up";
+  // notification: robotX created, waiting to be picked up
+  // name from the details
+  std::string notif = details["name"].ToString()
+    + " is waiting to be picked up";
   Notify(notif);
 }
 
