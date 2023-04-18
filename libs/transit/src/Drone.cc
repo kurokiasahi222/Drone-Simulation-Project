@@ -84,7 +84,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
     toRobot->Move(this, dt);
 
     if (toRobot->IsCompleted()) {
-      // notification: picked up 
+      // notification: picked up RobotX
       std::string notif = details["name"].ToString() + " has picked up " + nearestEntity->GetDetails()["name"].ToString();
       Notify(notif);
 
@@ -93,11 +93,13 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
       pickedUp = true;
     }
   } else if (toFinalDestination) {
+    // notification: travelling to final destination
     if (!hasNotifiedTraveling) {
       std::string notif = details["name"].ToString() + " is delivering " + nearestEntity->GetDetails()["name"].ToString() + " using " + nearestEntity->GetStrategyName() + " strategy";
       Notify(notif);
       hasNotifiedTraveling = true;
     }
+
     toFinalDestination->Move(this, dt);
 
     if (nearestEntity && pickedUp) {
@@ -106,7 +108,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
     }
 
     if (toFinalDestination->IsCompleted()) {
-      // notification: dropped off 
+      // notification: dropped off robotX
       std::string notif = details["name"].ToString() + " has dropped off " + nearestEntity->GetDetails()["name"].ToString();
       Notify(notif);
 
