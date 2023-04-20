@@ -7,22 +7,21 @@
 
 /**
  * @class IObserver
- * @brief Represents an observer that subscribes to an entity.
+ * @brief Abstract observer that subscribes to an entity.
  *
- * Each time an entity is built by a factory, an observer instance subscribes to the entity. 
- * The entity notifies it's observer(s) by calling the Update function. 
- * The observer communicates the message to the front end by calling the controller's SendEventToView function.
+ * This is the interface used by the entity to notify its observers, so that the
+ * entity doesn't have to directly reference a concrete observer class.
  */
 class IObserver {
  public:
     /**
-     * @brief Virtual destructor for IObserver.
+     * @brief Destructor for IObserver.
      */
     virtual ~IObserver() {}
 
     /**
-     * @brief Takes message from Entities and communicates with front end to print message to screen
-     * @param message string message to be printed to screen
+     * @brief Abstract function for accepting input from an entity
+     * @param message string message from entity
      */
     virtual void Update(const std::string& message) = 0;
 };
