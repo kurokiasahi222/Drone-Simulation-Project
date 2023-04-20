@@ -36,7 +36,7 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   IEntity* myNewEntity = compFactory->CreateEntity(entity);
   myNewEntity->SetGraph(graph);
 
-  //
+  // Attach new observer to the entity
   IObserver* observer = new Observer(controller);
   myNewEntity->Attach(observer);
 

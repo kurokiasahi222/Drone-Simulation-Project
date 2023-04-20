@@ -4,6 +4,7 @@
 #include <vector>
 
 #include "graph.h"
+#include "stdlib.h"
 #include "math/vector3.h"
 #include "util/json.h"
 #include "IObserver.h"
@@ -40,7 +41,7 @@ class IEntity {
     }
     list_observer_.clear();
 
-    delete graph; 
+    delete graph;
   }
 
 /**
@@ -94,7 +95,7 @@ class IEntity {
   /**
    * @brief Get the Strategy Name
    *
-   * @return Streategy name
+   * @return Strategy name
    */
   virtual std::string GetStrategyName() const {}
 
@@ -160,21 +161,40 @@ class IEntity {
    */
   virtual void Jump(double height) {}
 
+  /**
+   * @brief Generates random float in [Min, Max]
+   * @param Min Minimum value of random number
+   * @param Max Maximum value of random number
+   * @return Random float
+   */
   virtual float Random(float Min, float Max) {
-    return ((float(rand()) / float(RAND_MAX)) * (Max - Min)) + Min;
+    return ((static_cast<float>(random())
+            / static_cast<float>(RAND_MAX)) * (Max - Min)) + Min;
   }
 
-
-
+  /**
+   * @brief "Attaches" an observer to the entity by 
+   *        adding it to its list of observers
+   * @param observer Observer to be attached to entity
+   */
   void Attach(IObserver *observer) {
     list_observer_.push_back(observer);
   }
 
+  /**
+   * @brief "Detaches" observer from the entity by 
+   *        removing it from its list of observers
+   * @param observer Observer to be detatched from entity
+   */
   void Detach(IObserver *observer) {
     list_observer_.remove(observer);
   }
 
-  // call this upon arrival, delivery, whatever we want for notifs
+  /**
+   * @brief Iterates through entity's list of observers 
+   * calls each observer's Update function with a string message
+   * @param message string passed into each observers Update function
+   */  
   void Notify(std::string message = "Empty") {
     std::list<IObserver *>::iterator iterator = list_observer_.begin();
     while (iterator != list_observer_.end()) {
