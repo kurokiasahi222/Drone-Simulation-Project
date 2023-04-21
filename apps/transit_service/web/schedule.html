@@ -68,8 +68,24 @@
         </div>
     </div>
     <div><input type="button" value="Schedule Trip" onclick="schedule()"></div>
+    <br>
+    <div class="experiment-form">
+        <form style="box-sizing: border-box; border: 2px solid black;">
+            <h2>Start Experiment</h2>
+            <p>By selecting the number of drones and robots it will automatically start the simulation</p>
+            <label>Select the number of Drones: </label>
+            <input type="number" id="numDrones" value="Number of drones" placeholder="1" min="1", max="10">
+            <br>
+            <label>Select the number of Robots: </label>
+            <input type="number" id="numRobots" value="Number of robots" placeholder="1" min="1", max="10" style="margin-top: 10px;">
+            <br>
+            <input type="button" value="Click to Start Experiment" style="margin-top: 10px;">
+            <div><input type="button" value="Export Data to CSV" onclick="exportData()" style="margin-top: 10px;"></div>
+        </form>
+        
+    </div>
     <div><input type="button" value="Add Human" onclick="addHuman()" style="margin-top: 10px;"></div>
-    <div><input type="button" value="Export Data to CSV" onclick="exportData()" style="margin-top: 10px;"></div>
+    
 
     <div id="nameError"></div>
 

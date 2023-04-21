@@ -91,7 +91,7 @@
  include/IStrategy.h include/IController.h include/Robot.h \
  include/DataCollector.h include/DroneFactory.h include/RobotFactory.h \
  include/HumanFactory.h include/Human.h include/HelicopterFactory.h \
- include/Helicopter.h
+ include/Helicopter.h include/DataCollector.h
 
 include/SimulationModel.h:
 
@@ -300,3 +300,5 @@ include/Human.h:
 include/HelicopterFactory.h:
 
 include/Helicopter.h:
+
+include/DataCollector.h:
