@@ -1,6 +1,8 @@
 #include "DataCollector.h"
+
 #include <iostream>
 #include <fstream>
+
 
 void DataCollector::addData(std::vector<std::string> newData){
     data.push_back(newData);
