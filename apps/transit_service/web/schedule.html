@@ -69,6 +69,7 @@
     </div>
     <div><input type="button" value="Schedule Trip" onclick="schedule()"></div>
     <div><input type="button" value="Add Human" onclick="addHuman()" style="margin-top: 10px;"></div>
+    <div><input type="button" value="Export Data to CSV" onclick="exportData()" style="margin-top: 10px;"></div>
 
     <div id="nameError"></div>
 
@@ -183,6 +184,9 @@
                 "offset": [0, -0.5, 0]
             });
             humanID += 1;
+        }
+        function exportData() {
+            api.sendCommand("ExportCSV",{});
         }
     </script>
 </body>
