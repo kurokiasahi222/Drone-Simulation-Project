@@ -1,5 +1,5 @@
 <html>
-
+    
 <head>
     <style>
         .trip {
@@ -36,6 +36,7 @@
             width: 100px;
         }
     </style>
+    <meta charset="UTF-8">
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/WSApi.js"></script>
 </head>
@@ -55,7 +56,8 @@
             <option value="dijkstra">Dijkstra</option>
         </select>
     </div>
-    <div class="indent" style="width: 1000px; height: 650px;">Select Start / Destination:<br><br>
+    <div class="indent" style="width: 1000px; height: 650px;">Select Start / Destination:
+        <br><br>
         <div><img src="assets/texture/umn.png" width="1000" height="600" class="map">
             <svg id="map" width="1000" height="600" class="map">
             </svg>
@@ -69,22 +71,35 @@
     </div>
     <div><input type="button" value="Schedule Trip" onclick="schedule()"></div>
     <br>
+    <!-------- Modification for CSCI 3081 HW4 Spring 2023 -------->
+    <!-------- form for experiment -------->
     <div class="experiment-form">
         <form style="box-sizing: border-box; border: 2px solid black;">
             <h2>Start Experiment</h2>
             <p>By selecting the number of drones and robots it will automatically start the simulation</p>
             <label>Select the number of Drones: </label>
-            <input type="number" id="numDrones" value="Number of drones" placeholder="1" min="1", max="10">
+            <input type="number" id="num-drones" value="Number of drones" placeholder="1" min="1", max="10" required>
             <br>
             <label>Select the number of Robots: </label>
-            <input type="number" id="numRobots" value="Number of robots" placeholder="1" min="1", max="10" style="margin-top: 10px;">
+            <input type="number" id="num-robots" value="Number of robots" placeholder="1" min="1", max="10" style="margin-top: 10px;" required>
             <br>
-            <input type="button" value="Click to Start Experiment" style="margin-top: 10px;">
-            <div><input type="button" value="Export Data to CSV" onclick="exportData()" style="margin-top: 10px;"></div>
+            <div class="indent">Search Strategy:
+                <select id="search-strategy-experiment" required>
+                    <option value="" selected disabled value>Select a search strategy</option>
+                    <option value="astar">Astar</option>
+                    <option value="dfs">DFS</option>
+                    <option value="dijkstra">Dijkstra</option>
+                </select>
+            </div>
+            <input type="button" value="Click to Start Experiment" onclick="startExperiment()" style="margin-top: 10px;">
+            <div>
+                <input type="button" value="Export Data to CSV" onclick="exportData()" style="margin-top: 10px;">
+            </div>
         </form>
-        
     </div>
-    <div><input type="button" value="Add Human" onclick="addHuman()" style="margin-top: 10px;"></div>
+    <div>
+        <input type="button" value="Add Human" onclick="addHuman()" style="margin-top: 10px;">
+    </div>
     
 
     <div id="nameError"></div>
@@ -107,6 +122,7 @@
                 if (trip.length < 2) {
                     var posX = e.pageX - $(this).offset().left;
                     var posY = e.pageY - $(this).offset().top;
+                    console.log("x: " + posX + " y: " + posY + "")
                     $("#map").append('<circle cx="' + posX + '" cy="' + posY + '" r="10" stroke="green" stroke-width="4" fill="yellow" />');
                     $("#map").html($("#map").html());
                     trip.push([posX, posY]);
@@ -115,7 +131,7 @@
                     $("#map").append('<circle cx="' + trip[0][0] + '" cy="' + trip[0][1] + '" r="10" stroke="green" stroke-width="4" fill="yellow" />');
                     var posX = e.pageX - $(this).offset().left;
                     var posY = e.pageY - $(this).offset().top;
-                    $("#map").append('<circle cx="' + posX + '" cy="' + posY + '" r="10" stroke="green" stroke-width="4" fill="yellow" />');
+                    $("#map").append('<circle cx="' + posX + '" cy="' + posY + '" r="10" stroke="green" stroke-width="4" fill="blue" />');
                     $("#map").html($("#map").html());
                     trip.insert(1, [[posX, posY]]);
                 }
@@ -201,8 +217,82 @@
             });
             humanID += 1;
         }
+
+        // ----------------------------------------------------------------
+        // Modification for CSCI 3081 HW4 Spring 2023
+        // Export data to CSV file
         function exportData() {
             api.sendCommand("ExportCSV",{});
+        }
+
+        // This is a function for creating drones and robots automatically 
+        function startExperiment() {
+            // return a random number between min and max
+            let getRandomArbitrary = (min, max) => {
+                return Math.random() * (max - min) + min;
+            }
+            numdrones = document.getElementById("num-drones").value;
+            numrobots = document.getElementById("num-robots").value;
+            let searchStrat = document.getElementById("search-strategy-experiment").value;
+            let trip = []
+            console.log(trip);
+            let scale = 0.705;
+            let min = { x: -2030.950927734375, y: 220.99996948242188, z: -1184.1085205078125 };
+            var max = { x: 2249.523193359375, y: 286.9197998046875, z: 1261.8768310546875 };
+            if (numdrones > 0 && numrobots > 0 && searchStrat != "") {
+                // creat robots
+                for (let i = 0; i < numrobots; i++) {
+                    for (let i = 0; i < 2; i++) {
+                        let posX = getRandomArbitrary(0, 1000);
+                        let posY = getRandomArbitrary(0, 600);
+                        trip.push([posX, posY]);
+                    }
+                    let start = [trip[0][0] / ($("#map").width()), 1.0, trip[0][1] / ($("#map").height())];
+                    let end = [trip[trip.length - 1][0] / ($("#map").width()), 1.0, trip[trip.length - 1][1] / ($("#map").height())];
+                    console.log(start);
+                    api.sendCommand("CreateEntity", {
+                        "type": "robot",
+                        "name": "Robot-" + i,
+                        "mesh": "assets/model/robot.glb",
+                        "position": [(min.x + (max.x - min.x) * start[0]) * scale, 254.665 * start[1], (min.z + (max.z - min.z) * start[2]) * scale],
+                        "scale": [0.25, 0.25, 0.25],
+                        "direction": [1, 0, 0],
+                        "speed": 30.0,
+                        "radius": 1.0,
+                        "rotation": [0, 0, 0, 0]
+                    });
+                    api.sendCommand("ScheduleTrip", { name: "Robot-" + i, start: [trip[0][0], trip[0][1]], end: [(min.x + (max.x - min.x) * end[0]) * scale, 254.665 * end[1], (min.z + (max.z - min.z) * end[2]) * scale], search: searchStrat });
+                    trip = [] 
+                }
+                // Create drones
+                let addDrones = (droneID) => { 
+                    api.sendCommand("CreateEntity", {
+                        "type": "drone",
+                        "name": "Drone-" + droneID,
+                        "mesh": "assets/model/drone.glb",
+                        "position": [498.292, 270, -228.623],
+                        "scale": [0.1, 0.1, 0.1],
+                        "rotation": [0, 0, 0, 0],
+                        "direction": [1,0,0],
+                        "speed": 30.0,
+                        "radius": 1.0,
+                        "start": 2.0,
+                        "duration": 2.0,
+                        "offset": [0, 0.6, 0]
+                    })
+                }
+                for (let i = 1; i < numdrones; i++) {
+                    addDrones(i);
+                }
+                let details = name + ": ";
+                for (let i = 0; i < trip.length; i++) {
+                    if (i != 0) {
+                        details += " ---> ";
+                    }
+                    details += "(" + trip[i][0].toFixed(1) + ", " + trip[i][1].toFixed(1) + ")";
+                }
+                $("#list").append("<p class='trip'>" + details + "</p>");
+            }
         }
     </script>
 </body>
