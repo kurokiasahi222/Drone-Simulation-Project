@@ -264,6 +264,26 @@
                     api.sendCommand("ScheduleTrip", { name: "Robot-" + i, start: [trip[0][0], trip[0][1]], end: [(min.x + (max.x - min.x) * end[0]) * scale, 254.665 * end[1], (min.z + (max.z - min.z) * end[2]) * scale], search: searchStrat });
                     trip = [] 
                 }
+                // Create drones
+                let addDrones = (droneID) => { 
+                    api.sendCommand("CreateEntity", {
+                        "type": "drone",
+                        "name": "Drone-" + droneID,
+                        "mesh": "assets/model/drone.glb",
+                        "position": [498.292, 270, -228.623],
+                        "scale": [0.1, 0.1, 0.1],
+                        "rotation": [0, 0, 0, 0],
+                        "direction": [1,0,0],
+                        "speed": 30.0,
+                        "radius": 1.0,
+                        "start": 2.0,
+                        "duration": 2.0,
+                        "offset": [0, 0.6, 0]
+                    })
+                }
+                for (let i = 1; i < numdrones; i++) {
+                    addDrones(i);
+                }
                 let details = name + ": ";
                 for (let i = 0; i < trip.length; i++) {
                     if (i != 0) {
