@@ -17,9 +17,12 @@ Human::Human(JsonObject& obj) : details(obj) {
     // notification: human creation
     std::string notif = details["name"].ToString()
                         + " was created at {"
-                            + std::to_string(position.x).substr(0, std::to_string(position.x).size()-4)
-                            + ", " + std::to_string(position.x).substr(0, std::to_string(position.y).size()-4)
-                            + ", " + std::to_string(position.x).substr(0, std::to_string(position.z).size()-4)
+                            + std::to_string(position.x).substr(0,
+                                std::to_string(position.x).size()-4)
+                            + ", " + std::to_string(position.x).substr(0,
+                                std::to_string(position.y).size()-4)
+                            + ", " + std::to_string(position.x).substr(0,
+                                std::to_string(position.z).size()-4)
                             +"}";
     Notify(notif);
 }
@@ -36,9 +39,12 @@ void Human::CreateNewDestination() {
     // notification: heading to destination
     std::string notif = details["name"].ToString()
                         + " is on the way to {"
-                        + std::to_string(destination.x).substr(0, std::to_string(destination.x).size()-4)
-                        + ", " + std::to_string(destination.x).substr(0, std::to_string(destination.y).size()-4)
-                        + ", " + std::to_string(destination.x).substr(0, std::to_string(destination.z).size()-4)
+                        + std::to_string(destination.x).substr(0,
+                            std::to_string(destination.x).size()-4)
+                        + ", " + std::to_string(destination.x).substr(0,
+                            std::to_string(destination.y).size()-4)
+                        + ", " + std::to_string(destination.x).substr(0,
+                            std::to_string(destination.z).size()-4)
                         +"}";
     Notify(notif);
 }
@@ -46,6 +52,11 @@ void Human::CreateNewDestination() {
 void Human::Update(double dt, std::vector<IEntity*> scheduler) {
     if (toDestination) {
         if (toDestination->IsCompleted()) {
+            // notification: arrived at destination
+            std::string notif = details["name"].ToString()
+                                + " has arrived, generating new destination";
+            Notify(notif);
+
             CreateNewDestination();
         } else {
             toDestination->Move(this, dt);
