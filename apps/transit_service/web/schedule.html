@@ -224,6 +224,9 @@
         // Export data to CSV file
         function exportData() {
             var fileName = $("#fileName").val();
+            if (fileName == "") {
+                errorDiv.innerHTML += '<p style="color: red">[!] Error, missing file name...</p>'
+            }
             api.sendCommand("ExportCSV",{"name": fileName});
         }
 
