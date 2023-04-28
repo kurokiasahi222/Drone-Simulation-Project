@@ -25,7 +25,7 @@ class Robot : public IEntity {
   /**
    * @brief Destructor
    */
-  ~Robot() override = default;
+  ~Robot();
 
   /**
    * @brief Gets the robot's position

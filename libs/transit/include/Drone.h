@@ -72,6 +72,7 @@ class Drone : public IEntity {
 
   /**
    * @brief Gets the nearest entity in the scheduler
+   *        Prints messages to screen updating status of drones
    * @param scheduler Vector containing all the entities in the system
    */
   void GetNearestEntity(std::vector<IEntity*> scheduler);
@@ -140,6 +141,7 @@ class Drone : public IEntity {
   IEntity* nearestEntity = nullptr;
   IStrategy* toRobot = nullptr;
   IStrategy* toFinalDestination = nullptr;
+  bool hasNotifiedTraveling = false;
 };
 
 #endif

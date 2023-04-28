@@ -7,7 +7,25 @@ Robot::Robot(JsonObject &obj) : details(obj) {
   direction = {dir[0], dir[1], dir[2]};
   speed = obj["speed"];
   available = true;
+
+  // notification: robotX created, waiting to be picked up
+  // name from the details
+  std::string notif = details["name"].ToString()
+                        + " was created at {"
+                            + std::to_string(position.x).substr(0,
+                                std::to_string(position.x).size()-4)
+                            + ", " + std::to_string(position.y).substr(0,
+                                std::to_string(position.y).size()-4)
+                            + ", " + std::to_string(position.z).substr(0,
+                                std::to_string(position.z).size()-4)
+                            +"}";
+  Notify(notif);
+  notif = details["name"].ToString()
+    + " is waiting to be picked up";
+  Notify(notif);
 }
+
+Robot::~Robot() {}
 
 JsonObject Robot::GetDetails() const { return details; }
 

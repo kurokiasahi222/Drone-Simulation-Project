@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classIEntity.html" title="Represents an entity in a physical system." alt="" coords="5,81,69,108"/>
+<area shape="rect" id="node2" href="$classDrone.html" title="Represents a drone in a physical system. Drones move using euler integration based on a specified vel..." alt="" coords="131,5,193,32"/>
+<area shape="rect" id="node3" href="$classHelicopter.html" title=" " alt="" coords="117,56,207,83"/>
+<area shape="rect" id="node4" href="$classHuman.html" title=" " alt="" coords="127,107,197,133"/>
+<area shape="rect" id="node5" href="$classRobot.html" title="Represents a robot in a physical system." alt="" coords="132,157,192,184"/>
+</map>

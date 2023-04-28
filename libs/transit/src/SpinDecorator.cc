@@ -5,8 +5,8 @@ SpinDecorator::~SpinDecorator() {
   delete strategy;
 }
 
-void SpinDecorator::Move(IEntity* entity, double dt){
-    if(strategy->IsCompleted() && !IsCompleted()){
+void SpinDecorator::Move(IEntity* entity, double dt) {
+    if (strategy->IsCompleted() && !IsCompleted()) {
         entity->Rotate(dt * 10);
         time += dt;
     } else {
