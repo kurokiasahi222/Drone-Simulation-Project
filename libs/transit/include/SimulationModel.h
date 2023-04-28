@@ -37,16 +37,16 @@ class SimulationModel {
   void SetGraph(const IGraph* graph) { this->graph = graph; }
 
   /**
-   * @brief Creates a new simulation entitiy
+   * @brief Creates a new simulation entitiy, attaches observer to the entity
    * @param entity Type JsonObject contain the entity's reference to decide
-   *which entnity to create
+   * which entity to create
    **/
   void CreateEntity(JsonObject& entity);
 
   /**
    * @brief Schedule a trip for an object in the scene
    * @param detail Type JsonObject contain the entity's reference to schedule
-   *the detail of the trip being scheduled
+   * the detail of the trip being scheduled
    **/
   void ScheduleTrip(JsonObject& details);
 

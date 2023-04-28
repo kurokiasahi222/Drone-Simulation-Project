@@ -73,7 +73,7 @@ class Human : public IEntity {
 
   void CreateNewDestination();
 
-  private:
+ private:
   JsonObject details;
   Vector3 position;
   Vector3 direction;
