@@ -4,6 +4,7 @@
 #include "RobotFactory.h"
 #include "HumanFactory.h"
 #include "HelicopterFactory.h"
+#include "DataCollector.h"
 #include "Observer.h"
 
 SimulationModel::SimulationModel(IController& controller)
@@ -78,4 +79,9 @@ void SimulationModel::Update(double dt) {
 
 void SimulationModel::AddFactory(IEntityFactory* factory) {
   compFactory->AddFactory(factory);
+}
+
+void SimulationModel::ExportCSV(std::string fileName) {
+  DataCollector* collector = DataCollector::getInstance();
+  collector->toCSV(fileName);
 }

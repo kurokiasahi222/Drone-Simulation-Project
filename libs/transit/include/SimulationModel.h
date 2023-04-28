@@ -7,6 +7,7 @@
 #include "IEntity.h"
 #include "Robot.h"
 #include "graph.h"
+#include <string>
 using namespace routing;
 
 //--------------------  Model ----------------------------
@@ -62,6 +63,7 @@ class SimulationModel {
    */
   void AddFactory(IEntityFactory* factory);
 
+  void ExportCSV(std::string fileName);
  protected:
   IController& controller;
   std::vector<IEntity*> entities;

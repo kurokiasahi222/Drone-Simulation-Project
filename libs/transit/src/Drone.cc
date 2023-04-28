@@ -10,6 +10,7 @@
 #include "DijkstraStrategy.h"
 #include "JumpDecorator.h"
 #include "SpinDecorator.h"
+#include "DataCollector.h"
 
 Drone::Drone(JsonObject& obj) : details(obj) {
   JsonArray pos(obj["position"]);
@@ -142,6 +143,23 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
       pickedUp = false;
     }
   }
+  DataCollector* collector = DataCollector::getInstance();
+
+  std::vector<std::string> data = getData();
+  
+  collector->addData(data);
+}
+
+std::vector<std::string> Drone::getData(){
+  std::vector<std::string> data = {};
+  data.push_back(details["type"]);
+  data.push_back(std::to_string(id));
+  data.push_back(position.toString());
+  data.push_back(destination.toString());
+  data.push_back(std::to_string(speed));
+  data.push_back(available ? "1" : "0");
+  data.push_back(pickedUp ? "1" : "0");
+  return data;
 }
 
 void Drone::Rotate(double angle) {
