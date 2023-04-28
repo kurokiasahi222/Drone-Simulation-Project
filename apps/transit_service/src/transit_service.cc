@@ -53,7 +53,7 @@ public:
                 SendEntity("UpdateEntity", *it->second, false);
             }
         } else if (cmd == "ExportCSV"){
-            model.ExportCSV("placeholdername.csv");
+            model.ExportCSV(data["name"]);
         }
     }
 
