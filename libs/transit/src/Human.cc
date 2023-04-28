@@ -19,9 +19,9 @@ Human::Human(JsonObject& obj) : details(obj) {
                         + " was created at {"
                             + std::to_string(position.x).substr(0,
                                 std::to_string(position.x).size()-4)
-                            + ", " + std::to_string(position.x).substr(0,
+                            + ", " + std::to_string(position.y).substr(0,
                                 std::to_string(position.y).size()-4)
-                            + ", " + std::to_string(position.x).substr(0,
+                            + ", " + std::to_string(position.z).substr(0,
                                 std::to_string(position.z).size()-4)
                             +"}";
     Notify(notif);
@@ -41,9 +41,9 @@ void Human::CreateNewDestination() {
                         + " is on the way to {"
                         + std::to_string(destination.x).substr(0,
                             std::to_string(destination.x).size()-4)
-                        + ", " + std::to_string(destination.x).substr(0,
+                        + ", " + std::to_string(destination.y).substr(0,
                             std::to_string(destination.y).size()-4)
-                        + ", " + std::to_string(destination.x).substr(0,
+                        + ", " + std::to_string(destination.z).substr(0,
                             std::to_string(destination.z).size()-4)
                         +"}";
     Notify(notif);

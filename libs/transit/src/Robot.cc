@@ -14,13 +14,13 @@ Robot::Robot(JsonObject &obj) : details(obj) {
                         + " was created at {"
                             + std::to_string(position.x).substr(0,
                                 std::to_string(position.x).size()-4)
-                            + ", " + std::to_string(position.x).substr(0,
+                            + ", " + std::to_string(position.y).substr(0,
                                 std::to_string(position.y).size()-4)
-                            + ", " + std::to_string(position.x).substr(0,
+                            + ", " + std::to_string(position.z).substr(0,
                                 std::to_string(position.z).size()-4)
                             +"}";
-    Notify(notif);
-  std::string notif = details["name"].ToString()
+  Notify(notif);
+  notif = details["name"].ToString()
     + " is waiting to be picked up";
   Notify(notif);
 }
