@@ -21,13 +21,13 @@ void Robot::Rotate(double angle) {
   direction.z = dirTmp.x * std::sin(angle) + dirTmp.z * std::cos(angle);
 }
 
-void Robot::Update(double dt, std::vector<IEntity*> scheduler){
+void Robot::Update(double dt, std::vector<IEntity*> scheduler) {
   DataCollector* collector = DataCollector::getInstance();
   std::vector<std::string> data = getData();
   collector->addData(data);
 }
 
-std::vector<std::string> Robot::getData(){
+std::vector<std::string> Robot::getData() {
   std::vector<std::string> data = {};
   data.push_back(details["type"]);
   data.push_back(std::to_string(id));

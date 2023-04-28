@@ -136,11 +136,11 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
   DataCollector* collector = DataCollector::getInstance();
 
   std::vector<std::string> data = getData();
-  
+
   collector->addData(data);
 }
 
-std::vector<std::string> Drone::getData(){
+std::vector<std::string> Drone::getData() {
   std::vector<std::string> data = {};
   data.push_back(details["type"]);
   data.push_back(std::to_string(id));

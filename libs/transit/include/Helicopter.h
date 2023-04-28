@@ -3,7 +3,13 @@
 
 #include "IEntity.h"
 #include "IStrategy.h"
-
+/**
+ * @class Helicopter
+ * @brief Represents a helicopter in a physical system
+ *
+ * Helicopter moves to random destinations in the system
+  using beeline strategy
+ */
 class Helicopter : public IEntity {
  public:
   /**

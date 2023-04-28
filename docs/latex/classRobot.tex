@@ -11,8 +11,7 @@ Represents a robot in a physical system.
 
 
 
-Inheritance diagram for Robot\+:
-\nopagebreak
+Inheritance diagram for Robot\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -21,8 +20,7 @@ Inheritance diagram for Robot\+:
 \end{figure}
 
 
-Collaboration diagram for Robot\+:
-\nopagebreak
+Collaboration diagram for Robot\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -51,6 +49,8 @@ float \mbox{\hyperlink{classRobot_ad199885470ae6e1109153526c21473c5}{Get\+Speed}
 \begin{DoxyCompactList}\small\item\em Gets the robot\textquotesingle{}s speed. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{classRobot_a7ddaea08f503f78b1e17e28dfa451531}{Get\+Strategy\+Name}} () const
 \begin{DoxyCompactList}\small\item\em Get the Strategy Name. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRobot_a7445d3ac466d8e399f2b528ad8c2a2c8}{Update}} (double dt, std\+::vector$<$ \mbox{\hyperlink{classIEntity}{I\+Entity}} $\ast$ $>$ scheduler)
+\begin{DoxyCompactList}\small\item\em Updates the entity\textquotesingle{}s position in the physical system. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRobot_a59c7dbc7346f86df3941c5dad9b12507}{Set\+Strategy\+Name}} (std\+::string strategy\+Name\+\_\+)
 \begin{DoxyCompactList}\small\item\em Set the Strategy Name. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classRobot_a2ef6424fa88e43973ade3fddb4ec649b}{Set\+Availability}} (bool choice)
@@ -322,6 +322,27 @@ Set the Strategy Name.
 
 
 Reimplemented from \mbox{\hyperlink{classIEntity_a933def05f85783fddbf05e8257cc8880}{I\+Entity}}.
+
+\mbox{\Hypertarget{classRobot_a7445d3ac466d8e399f2b528ad8c2a2c8}\label{classRobot_a7445d3ac466d8e399f2b528ad8c2a2c8}} 
+\index{Robot@{Robot}!Update@{Update}}
+\index{Update@{Update}!Robot@{Robot}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Robot\+::\+Update (\begin{DoxyParamCaption}\item[{double}]{dt,  }\item[{std\+::vector$<$ \mbox{\hyperlink{classIEntity}{I\+Entity}} $\ast$ $>$}]{scheduler }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Updates the entity\textquotesingle{}s position in the physical system. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dt} & The time step of the update. \\
+\hline
+{\em scheduler} & The list of all entities in the system. \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{classIEntity_a9a8e8588fd85c7b0d813d60686d4dc2c}{I\+Entity}}.
 
 
 

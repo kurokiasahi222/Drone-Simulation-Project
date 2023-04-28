@@ -75,23 +75,25 @@ $(function() {
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;IObserver.h&quot;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;IController.h&quot;</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="classObserver.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="classObserver.html">Observer</a> : <span class="keyword">public</span> <a class="code" href="classIObserver.html">IObserver</a> {</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <a class="code" href="classObserver.html">Observer</a>(<a class="code" href="classIController.html">IController</a>&amp; controller) : controller_(controller) {}</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="classObserver.html">Observer</a>() {}</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <span class="keywordtype">void</span> Update(<span class="keyword">const</span> std::string&amp; message) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="classIController.html">IController</a>&amp; controller_;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;};</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classObserver.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classObserver.html">Observer</a> : <span class="keyword">public</span> <a class="code" href="classIObserver.html">IObserver</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;  <a class="code" href="classObserver.html">Observer</a>(<a class="code" href="classIController.html">IController</a>&amp; controller) : controller_(controller) {}</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="classObserver.html#afcc6b67be6c386f2f3d2c363aa59cb47">   20</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="classObserver.html#afcc6b67be6c386f2f3d2c363aa59cb47">~Observer</a>() {}</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classObserver.html#a36146716c65713f5a9a7b935bed44287">Update</a>(<span class="keyword">const</span> std::string&amp; message) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <a class="code" href="classIController.html">IController</a>&amp; controller_;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassObserver_html"><div class="ttname"><a href="classObserver.html">Observer</a></div><div class="ttdef"><b>Definition:</b> Observer.h:7</div></div>
+<div class="ttc" id="aclassObserver_html"><div class="ttname"><a href="classObserver.html">Observer</a></div><div class="ttdoc">Concrete observer that subscribes to an entity.</div><div class="ttdef"><b>Definition:</b> Observer.h:13</div></div>
 <div class="ttc" id="aclassIController_html"><div class="ttname"><a href="classIController.html">IController</a></div><div class="ttdoc">class for IController used for transit service. Uses the Model View</div><div class="ttdef"><b>Definition:</b> IController.h:14</div></div>
-<div class="ttc" id="aclassIObserver_html"><div class="ttname"><a href="classIObserver.html">IObserver</a></div><div class="ttdef"><b>Definition:</b> IObserver.h:8</div></div>
+<div class="ttc" id="aclassObserver_html_a36146716c65713f5a9a7b935bed44287"><div class="ttname"><a href="classObserver.html#a36146716c65713f5a9a7b935bed44287">Observer::Update</a></div><div class="ttdeci">void Update(const std::string &amp;message) override</div><div class="ttdoc">Takes messages from entities and passes them onto the frontend.</div><div class="ttdef"><b>Definition:</b> Observer.cc:3</div></div>
+<div class="ttc" id="aclassObserver_html_afcc6b67be6c386f2f3d2c363aa59cb47"><div class="ttname"><a href="classObserver.html#afcc6b67be6c386f2f3d2c363aa59cb47">Observer::~Observer</a></div><div class="ttdeci">virtual ~Observer()</div><div class="ttdoc">Destructor for Observer.</div><div class="ttdef"><b>Definition:</b> Observer.h:20</div></div>
+<div class="ttc" id="aclassIObserver_html"><div class="ttname"><a href="classIObserver.html">IObserver</a></div><div class="ttdoc">Abstract observer that subscribes to an entity.</div><div class="ttdef"><b>Definition:</b> IObserver.h:15</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

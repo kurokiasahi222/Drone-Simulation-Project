@@ -122,6 +122,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a7ddaea08f503f78b1e17e28dfa451531"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a7ddaea08f503f78b1e17e28dfa451531">GetStrategyName</a> () const</td></tr>
 <tr class="memdesc:a7ddaea08f503f78b1e17e28dfa451531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the Strategy Name.  <a href="classRobot.html#a7ddaea08f503f78b1e17e28dfa451531">More...</a><br /></td></tr>
 <tr class="separator:a7ddaea08f503f78b1e17e28dfa451531"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7445d3ac466d8e399f2b528ad8c2a2c8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a7445d3ac466d8e399f2b528ad8c2a2c8">Update</a> (double dt, std::vector&lt; <a class="el" href="classIEntity.html">IEntity</a> * &gt; scheduler)</td></tr>
+<tr class="memdesc:a7445d3ac466d8e399f2b528ad8c2a2c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the entity's position in the physical system.  <a href="classRobot.html#a7445d3ac466d8e399f2b528ad8c2a2c8">More...</a><br /></td></tr>
+<tr class="separator:a7445d3ac466d8e399f2b528ad8c2a2c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59c7dbc7346f86df3941c5dad9b12507"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a59c7dbc7346f86df3941c5dad9b12507">SetStrategyName</a> (std::string strategyName_)</td></tr>
 <tr class="memdesc:a59c7dbc7346f86df3941c5dad9b12507"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the Strategy Name.  <a href="classRobot.html#a59c7dbc7346f86df3941c5dad9b12507">More...</a><br /></td></tr>
 <tr class="separator:a59c7dbc7346f86df3941c5dad9b12507"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,9 +158,6 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:a1326f6c0e0377a4fbde8a8c02fb6ccb3 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a1326f6c0e0377a4fbde8a8c02fb6ccb3">GetColor</a> () const</td></tr>
 <tr class="memdesc:a1326f6c0e0377a4fbde8a8c02fb6ccb3 inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the color of the drone.  <a href="classIEntity.html#a1326f6c0e0377a4fbde8a8c02fb6ccb3">More...</a><br /></td></tr>
 <tr class="separator:a1326f6c0e0377a4fbde8a8c02fb6ccb3 inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a8e8588fd85c7b0d813d60686d4dc2c inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a9a8e8588fd85c7b0d813d60686d4dc2c">Update</a> (double dt, std::vector&lt; <a class="el" href="classIEntity.html">IEntity</a> * &gt; scheduler)</td></tr>
-<tr class="memdesc:a9a8e8588fd85c7b0d813d60686d4dc2c inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the entity's position in the physical system.  <a href="classIEntity.html#a9a8e8588fd85c7b0d813d60686d4dc2c">More...</a><br /></td></tr>
-<tr class="separator:a9a8e8588fd85c7b0d813d60686d4dc2c inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b8b8eb627e8945fdc997f7a9d457df0 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a6b8b8eb627e8945fdc997f7a9d457df0">SetGraph</a> (const IGraph *graph)</td></tr>
 <tr class="memdesc:a6b8b8eb627e8945fdc997f7a9d457df0 inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the graph object used by the entity in the simulation.  <a href="classIEntity.html#a6b8b8eb627e8945fdc997f7a9d457df0">More...</a><br /></td></tr>
 <tr class="separator:a6b8b8eb627e8945fdc997f7a9d457df0 inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -167,17 +167,17 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:a4e8eb64a324e1196be039c5e2a293b7a inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a4e8eb64a324e1196be039c5e2a293b7a">Jump</a> (double height)</td></tr>
 <tr class="memdesc:a4e8eb64a324e1196be039c5e2a293b7a inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the entity jump.  <a href="classIEntity.html#a4e8eb64a324e1196be039c5e2a293b7a">More...</a><br /></td></tr>
 <tr class="separator:a4e8eb64a324e1196be039c5e2a293b7a inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40b0caaefcd247250efd2f12a3335a73 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="a40b0caaefcd247250efd2f12a3335a73"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>Random</b> (float Min, float Max)</td></tr>
+<tr class="memitem:a40b0caaefcd247250efd2f12a3335a73 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a40b0caaefcd247250efd2f12a3335a73">Random</a> (float Min, float Max)</td></tr>
+<tr class="memdesc:a40b0caaefcd247250efd2f12a3335a73 inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates random float in [Min, Max].  <a href="classIEntity.html#a40b0caaefcd247250efd2f12a3335a73">More...</a><br /></td></tr>
 <tr class="separator:a40b0caaefcd247250efd2f12a3335a73 inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace22b6af4e4c6804487d4a67d18a2c52 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="ace22b6af4e4c6804487d4a67d18a2c52"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Attach</b> (<a class="el" href="classIObserver.html">IObserver</a> *observer)</td></tr>
+<tr class="memitem:ace22b6af4e4c6804487d4a67d18a2c52 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#ace22b6af4e4c6804487d4a67d18a2c52">Attach</a> (<a class="el" href="classIObserver.html">IObserver</a> *observer)</td></tr>
+<tr class="memdesc:ace22b6af4e4c6804487d4a67d18a2c52 inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">"Attaches" an observer to the entity by adding it to its list of observers  <a href="classIEntity.html#ace22b6af4e4c6804487d4a67d18a2c52">More...</a><br /></td></tr>
 <tr class="separator:ace22b6af4e4c6804487d4a67d18a2c52 inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa8d8c603d62c13752ea67db807b536e inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="aaa8d8c603d62c13752ea67db807b536e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Detach</b> (<a class="el" href="classIObserver.html">IObserver</a> *observer)</td></tr>
+<tr class="memitem:aaa8d8c603d62c13752ea67db807b536e inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#aaa8d8c603d62c13752ea67db807b536e">Detach</a> (<a class="el" href="classIObserver.html">IObserver</a> *observer)</td></tr>
+<tr class="memdesc:aaa8d8c603d62c13752ea67db807b536e inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">"Detaches" observer from the entity by removing it from its list of observers  <a href="classIEntity.html#aaa8d8c603d62c13752ea67db807b536e">More...</a><br /></td></tr>
 <tr class="separator:aaa8d8c603d62c13752ea67db807b536e inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8155e1befaa925dc450b6aee92c2a219 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="a8155e1befaa925dc450b6aee92c2a219"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Notify</b> (std::string message=&quot;Empty&quot;)</td></tr>
+<tr class="memitem:a8155e1befaa925dc450b6aee92c2a219 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a8155e1befaa925dc450b6aee92c2a219">Notify</a> (std::string message=&quot;Empty&quot;)</td></tr>
+<tr class="memdesc:a8155e1befaa925dc450b6aee92c2a219 inherit pub_methods_classIEntity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates through entity's list of observers calls each observer's Update function with a string message.  <a href="classIEntity.html#a8155e1befaa925dc450b6aee92c2a219">More...</a><br /></td></tr>
 <tr class="separator:a8155e1befaa925dc450b6aee92c2a219 inherit pub_methods_classIEntity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -647,6 +647,53 @@ std::list&lt; <a class="el" href="classIObserver.html">IObserver</a> * &gt;&#160
 </dl>
 
 <p>Reimplemented from <a class="el" href="classIEntity.html#a933def05f85783fddbf05e8257cc8880">IEntity</a>.</p>
+
+</div>
+</div>
+<a id="a7445d3ac466d8e399f2b528ad8c2a2c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7445d3ac466d8e399f2b528ad8c2a2c8">&#9670;&nbsp;</a></span>Update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Robot::Update </td>
+          <td>(</td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>dt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classIEntity.html">IEntity</a> * &gt;&#160;</td>
+          <td class="paramname"><em>scheduler</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates the entity's position in the physical system. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dt</td><td>The time step of the update. </td></tr>
+    <tr><td class="paramname">scheduler</td><td>The list of all entities in the system. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="classIEntity.html#a9a8e8588fd85c7b0d813d60686d4dc2c">IEntity</a>.</p>
 
 </div>
 </div>

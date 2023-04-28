@@ -11,8 +11,7 @@ Class \mbox{\hyperlink{classSimulationModel}{Simulation\+Model}} handling the tr
 
 
 
-Collaboration diagram for Simulation\+Model\+:
-\nopagebreak
+Collaboration diagram for Simulation\+Model\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -31,13 +30,16 @@ Collaboration diagram for Simulation\+Model\+:
 void \mbox{\hyperlink{classSimulationModel_a7595badfb368bcf5673f98b3f229dc0f}{Set\+Graph}} (const I\+Graph $\ast$graph)
 \begin{DoxyCompactList}\small\item\em Set the Graph for the \mbox{\hyperlink{classSimulationModel}{Simulation\+Model}}. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSimulationModel_a0529fb427560a2bde9b8cb62f82e6baf}{Create\+Entity}} (Json\+Object \&entity)
-\begin{DoxyCompactList}\small\item\em Creates a new simulation entitiy. \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Creates a new simulation entitiy, attaches observer to the entity. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSimulationModel_a68a4d4927ec49f6f362f7bfb07a96ddc}{Schedule\+Trip}} (Json\+Object \&details)
 \begin{DoxyCompactList}\small\item\em Schedule a trip for an object in the scene. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSimulationModel_ad409c5965a777ef636114eeef8f9ea48}{Update}} (double dt)
 \begin{DoxyCompactList}\small\item\em Update the simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSimulationModel_a44215da18f82ad591ead5085f6da13f0}{Add\+Factory}} (\mbox{\hyperlink{classIEntityFactory}{I\+Entity\+Factory}} $\ast$factory)
-\begin{DoxyCompactList}\small\item\em Add new factory into the simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Add new factory into the simulation. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classSimulationModel_a8624583b56cf7073137134190931a904}\label{classSimulationModel_a8624583b56cf7073137134190931a904}} 
+void {\bfseries Export\+C\+SV} (std\+::string file\+Name)
+\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -87,11 +89,11 @@ Add new factory into the simulation.
 
 
 
-Creates a new simulation entitiy. 
+Creates a new simulation entitiy, attaches observer to the entity. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em entity} & Type Json\+Object contain the entity\textquotesingle{}s reference to decide which entnity to create \\
+{\em entity} & Type Json\+Object contain the entity\textquotesingle{}s reference to decide which entity to create \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classSimulationModel_a68a4d4927ec49f6f362f7bfb07a96ddc}\label{classSimulationModel_a68a4d4927ec49f6f362f7bfb07a96ddc}} 

@@ -3,7 +3,12 @@
 
 #include "IEntity.h"
 #include "IStrategy.h"
-
+/**
+ * @class Human
+ * @brief Represents a human in a physical system
+ *
+ * Humans move to random destinations in the system
+ */
 class Human : public IEntity {
  public:
   /**
