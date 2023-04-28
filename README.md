@@ -1,8 +1,8 @@
 
 # Team-010-25-homework4
-Henry Zhao - zhao1057
-Kinsey Miller - mill8744
-Ash Kuroki - kurok011
+Henry Zhao - zhao1057, 
+Kinsey Miller - mill8744, 
+Ash Kuroki - kurok011, 
 Joel Nathe - nathe031
 
 ### Project Overview
