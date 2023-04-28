@@ -13,18 +13,6 @@ Human::Human(JsonObject& obj) : details(obj) {
   direction = {dir[0], dir[1], dir[2]};
 
   speed = obj["speed"];
-
-    // notification: human creation
-    std::string notif = details["name"].ToString()
-                        + " was created at {"
-                            + std::to_string(position.x).substr(0,
-                                std::to_string(position.x).size()-4)
-                            + ", " + std::to_string(position.y).substr(0,
-                                std::to_string(position.y).size()-4)
-                            + ", " + std::to_string(position.z).substr(0,
-                                std::to_string(position.z).size()-4)
-                            +"}";
-    Notify(notif);
 }
 
 Human::~Human() {
