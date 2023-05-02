@@ -139,11 +139,11 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
   ReportData();
 }
 
-void Drone::ReportData(){
-  if (timeSinceUpdate > 0.5){
+void Drone::ReportData() {
+  if (timeSinceUpdate > 0.5) {
     DataCollector* collector = DataCollector::getInstance();
-    //Get's data
-     std::vector<std::string> data = {};
+    // Get's data
+    std::vector<std::string> data = {};
     data.push_back(details["type"]);
     data.push_back(std::to_string(id));
     data.push_back(position.toString());

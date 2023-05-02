@@ -92,9 +92,12 @@
                 </select>
             </div>
             <input type="button" value="Click to Start Experiment" onclick="startExperiment()" style="margin-top: 10px;">
-            <div class="indent">File Name: <input id="fileName" type="Text" style="margin-top:10px;margin-bottom:5px;">
+            <div class="indent">
+                File Name: 
+                <input id="fileName" type="Text" style="margin-top:10px;margin-bottom:5px;" required>
                 <input type="button" value="Export Data to CSV" onclick="exportData()" style="margin-top: 5px;">
             </div>
+            <p id="sucess-export"></p>
             
         </form>
     </div>
@@ -222,12 +225,23 @@
         // ----------------------------------------------------------------
         // Modification for CSCI 3081 HW4 Spring 2023
         // Export data to CSV file
+        
+
         function exportData() {
             var fileName = $("#fileName").val();
+            if (fileName.endsWith(".csv") == false) {
+                alert("Your file must end with: .csv"); 
+                return;
+            }
             if (fileName == "") {
                 errorDiv.innerHTML += '<p style="color: red">[!] Error, missing file name...</p>'
             }
             api.sendCommand("ExportCSV",{"name": fileName});
+            let success = document.getElementById("sucess-export");
+            success.innerHTML = "Sucesss!!! Successfully exported data to " + fileName;
+            setTimeout(() => {
+                success.innerHTML = "";
+            }, 8000); 
         }
 
         // This is a function for creating drones and robots automatically 
@@ -239,6 +253,14 @@
             numdrones = document.getElementById("num-drones").value;
             numrobots = document.getElementById("num-robots").value;
             let searchStrat = document.getElementById("search-strategy-experiment").value;
+            console.log(numdrones); 
+            console.log(numrobots);
+            console.log(searchStrat);
+            if (numdrones == "" || numdrones == "" || searchStrat == "") {
+                console.log("You are missing required fields!"); 
+                alert("Please select all the required fields to start the experiment!"); 
+                return;
+            }
             let trip = []
             console.log(trip);
             let scale = 0.705;
