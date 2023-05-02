@@ -109,6 +109,10 @@ class Drone : public IEntity {
   void SetColor(std::string col_) { color = col_; }
 
   /**
+   * @brief Reports the drone's data to the data collector every half second.
+  */
+  void ReportData();
+  /**
    * @brief Rotates the drone
    * @param angle The angle by which the drone should be rotated
    */
@@ -136,12 +140,13 @@ class Drone : public IEntity {
   bool goUp = true;  // jump helper
   Vector3 destination;
   float speed;
+  float totalTime = 0;
+  float timeSinceUpdate;
   bool available;
   bool pickedUp;
   IEntity* nearestEntity = nullptr;
   IStrategy* toRobot = nullptr;
   IStrategy* toFinalDestination = nullptr;
-  std::vector<std::string> getData();
   bool hasNotifiedTraveling = false;
 };
 

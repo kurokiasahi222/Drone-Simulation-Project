@@ -108,10 +108,20 @@ class Robot : public IEntity {
   void SetDestination(Vector3 des_) { destination = des_; }
 
   /**
+   * @brief Sets the delivered status of the robot
+   * @param del_ The new delvered status of the robot
+  */
+  void SetDelivered(bool del_) {delivered = del_;}
+  /**
    * @brief Rotates the robot
    * @param angle The angle by which the robot should be rotated
    */
   void Rotate(double angle);
+
+  /**
+   * @brief Reports the robot's data to the data collector every half second.
+  */
+  void ReportData();
 
  private:
   JsonObject details;
@@ -120,9 +130,10 @@ class Robot : public IEntity {
   Vector3 destination;
   float speed;
   bool available;
+  bool delivered = false;
+  float totalTime = 0;
+  float timeSinceUpdate;
   std::string strategyName;
-
-  std::vector<std::string> getData();
 };
 
 #endif  // ROBOT_H

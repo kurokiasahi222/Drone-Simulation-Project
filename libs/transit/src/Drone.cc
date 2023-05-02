@@ -95,6 +95,8 @@ void Drone::GetNearestEntity(std::vector<IEntity*> scheduler) {
 }
 
 void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
+  totalTime += dt;
+  timeSinceUpdate += dt;
   if (available)
     GetNearestEntity(scheduler);
 
@@ -135,6 +137,7 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
       std::string notif = details["name"].ToString() + " has dropped off "
                           + nearestEntity->GetDetails()["name"].ToString();
       Notify(notif);
+      nearestEntity->SetDelivered(true);
 
       delete toFinalDestination;
       toFinalDestination = nullptr;
@@ -143,23 +146,27 @@ void Drone::Update(double dt, std::vector<IEntity*> scheduler) {
       pickedUp = false;
     }
   }
-  DataCollector* collector = DataCollector::getInstance();
-
-  std::vector<std::string> data = getData();
-  
-  collector->addData(data);
+  ReportData();
 }
 
-std::vector<std::string> Drone::getData(){
-  std::vector<std::string> data = {};
-  data.push_back(details["type"]);
-  data.push_back(std::to_string(id));
-  data.push_back(position.toString());
-  data.push_back(destination.toString());
-  data.push_back(std::to_string(speed));
-  data.push_back(available ? "1" : "0");
-  data.push_back(pickedUp ? "1" : "0");
-  return data;
+void Drone::ReportData(){
+  if (timeSinceUpdate > 0.5){
+    DataCollector* collector = DataCollector::getInstance();
+    //Get's data
+     std::vector<std::string> data = {};
+    data.push_back(details["type"]);
+    data.push_back(std::to_string(id));
+    data.push_back(position.toString());
+    data.push_back(destination.toString());
+    data.push_back(std::to_string(speed));
+    data.push_back(available ? "1" : "0");
+    data.push_back(pickedUp ? "1" : "0");
+    data.push_back("N/A");
+    data.push_back("N/A");
+    data.push_back(std::to_string(totalTime));
+    collector->addData(data);
+    timeSinceUpdate = 0;
+  }
 }
 
 void Drone::Rotate(double angle) {
