@@ -21,21 +21,30 @@ void Robot::Rotate(double angle) {
   direction.z = dirTmp.x * std::sin(angle) + dirTmp.z * std::cos(angle);
 }
 
-void Robot::Update(double dt, std::vector<IEntity*> scheduler) {
-  DataCollector* collector = DataCollector::getInstance();
-  std::vector<std::string> data = getData();
-  collector->addData(data);
+void Robot::Update(double dt, std::vector<IEntity*> scheduler){
+  totalTime += dt;
+  timeSinceUpdate += dt;
+  ReportData();
 }
 
-std::vector<std::string> Robot::getData() {
-  std::vector<std::string> data = {};
-  data.push_back(details["type"]);
-  data.push_back(std::to_string(id));
-  data.push_back(position.toString());
-  data.push_back(destination.toString());
-  data.push_back(std::to_string(speed));
-  data.push_back(available ? "1" : "0");
-  data.push_back("0");
-  data.push_back(strategyName);
-  return data;
+void Robot::ReportData(){
+  //If it is time to update
+  if (timeSinceUpdate > 0.5){
+    DataCollector* collector = DataCollector::getInstance();
+    // Makes string vector of data
+    std::vector<std::string> data = {};
+    data.push_back(details["type"]);
+    data.push_back(std::to_string(id));
+    data.push_back(position.toString());
+    data.push_back(destination.toString());
+    data.push_back(std::to_string(speed));
+    data.push_back(available ? "1" : "0");
+    data.push_back("N/A");
+    data.push_back(delivered ? "1" : "0");
+    data.push_back(strategyName);
+    data.push_back(std::to_string(totalTime));
+    //Reports it to collector
+    collector->addData(data);
+    timeSinceUpdate = 0;
+  }
 }

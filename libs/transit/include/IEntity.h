@@ -150,6 +150,12 @@ class IEntity {
   virtual void SetColor(std::string col_) {}
 
   /**
+   * @brief Sets the delivered status of the robot
+   * @param del_ The new delvered status of the robot
+  */
+
+  virtual void SetDelivered(bool del_) {}
+  /**
    * @brief Rotate the entity.
    * @param angle The angle to rotate the entity by.
    */
@@ -202,6 +208,11 @@ class IEntity {
       ++iterator;
     }
   }
+
+  /**
+   * @brief Report's the entity's data to the data collector
+  */
+  virtual void ReportData() {}
 
 
  protected:
