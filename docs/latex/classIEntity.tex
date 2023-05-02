@@ -66,18 +66,14 @@ virtual void \mbox{\hyperlink{classIEntity_a4c109baa4179c28422623a7d3b2e9f82}{Ro
 \begin{DoxyCompactList}\small\item\em Rotate the entity. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classIEntity_a4e8eb64a324e1196be039c5e2a293b7a}{Jump}} (double height)
 \begin{DoxyCompactList}\small\item\em Make the entity jump. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classIEntity_a40b0caaefcd247250efd2f12a3335a73}\label{classIEntity_a40b0caaefcd247250efd2f12a3335a73}} 
-virtual float {\bfseries Random} (float Min, float Max)
-\item 
-\mbox{\Hypertarget{classIEntity_ace22b6af4e4c6804487d4a67d18a2c52}\label{classIEntity_ace22b6af4e4c6804487d4a67d18a2c52}} 
-void {\bfseries Attach} (\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$observer)
-\item 
-\mbox{\Hypertarget{classIEntity_aaa8d8c603d62c13752ea67db807b536e}\label{classIEntity_aaa8d8c603d62c13752ea67db807b536e}} 
-void {\bfseries Detach} (\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$observer)
-\item 
-\mbox{\Hypertarget{classIEntity_a8155e1befaa925dc450b6aee92c2a219}\label{classIEntity_a8155e1befaa925dc450b6aee92c2a219}} 
-void {\bfseries Notify} (std\+::string message=\char`\"{}Empty\char`\"{})
-\end{DoxyCompactItemize}
+virtual float \mbox{\hyperlink{classIEntity_a40b0caaefcd247250efd2f12a3335a73}{Random}} (float Min, float Max)
+\begin{DoxyCompactList}\small\item\em Generates random float in \mbox{[}Min, Max\mbox{]}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIEntity_ace22b6af4e4c6804487d4a67d18a2c52}{Attach}} (\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$observer)
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+Attaches\char`\"{} an observer to the entity by adding it to its list of observers \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIEntity_aaa8d8c603d62c13752ea67db807b536e}{Detach}} (\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$observer)
+\begin{DoxyCompactList}\small\item\em \char`\"{}\+Detaches\char`\"{} observer from the entity by removing it from its list of observers \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIEntity_a8155e1befaa925dc450b6aee92c2a219}{Notify}} (std\+::string message=\char`\"{}Empty\char`\"{})
+\begin{DoxyCompactList}\small\item\em Iterates through entity\textquotesingle{}s list of observers calls each observer\textquotesingle{}s Update function with a string message. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -98,6 +94,36 @@ Represents an entity in a physical system.
 An \mbox{\hyperlink{classIEntity}{I\+Entity}} object has a unique ID, a position, a direction, a destination, and details. It also has a speed, which determines how fast the entity moves in the physical system. Subclasses of \mbox{\hyperlink{classIEntity}{I\+Entity}} can override the {\ttfamily Update} function to implement their own movement behavior. 
 
 \doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIEntity_ace22b6af4e4c6804487d4a67d18a2c52}\label{classIEntity_ace22b6af4e4c6804487d4a67d18a2c52}} 
+\index{IEntity@{IEntity}!Attach@{Attach}}
+\index{Attach@{Attach}!IEntity@{IEntity}}
+\doxysubsubsection{\texorpdfstring{Attach()}{Attach()}}
+{\footnotesize\ttfamily void I\+Entity\+::\+Attach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\char`\"{}\+Attaches\char`\"{} an observer to the entity by adding it to its list of observers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & \mbox{\hyperlink{classObserver}{Observer}} to be attached to entity \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIEntity_aaa8d8c603d62c13752ea67db807b536e}\label{classIEntity_aaa8d8c603d62c13752ea67db807b536e}} 
+\index{IEntity@{IEntity}!Detach@{Detach}}
+\index{Detach@{Detach}!IEntity@{IEntity}}
+\doxysubsubsection{\texorpdfstring{Detach()}{Detach()}}
+{\footnotesize\ttfamily void I\+Entity\+::\+Detach (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$}]{observer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\char`\"{}\+Detaches\char`\"{} observer from the entity by removing it from its list of observers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em observer} & \mbox{\hyperlink{classObserver}{Observer}} to be detatched from entity \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classIEntity_a90348881691a37d5c3d63265ed3463b1}\label{classIEntity_a90348881691a37d5c3d63265ed3463b1}} 
 \index{IEntity@{IEntity}!GetAvailability@{GetAvailability}}
 \index{GetAvailability@{GetAvailability}!IEntity@{IEntity}}
@@ -147,7 +173,7 @@ The destination of the entity.
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{classDrone_adaf61822f659e8ab22fb633569288752}{Drone}}, \mbox{\hyperlink{classRobot_abe629d465798403a706f574b33284659}{Robot}}, \mbox{\hyperlink{classHelicopter_adc65020147c682911cc8f15ab6bb11d6}{Helicopter}}, and \mbox{\hyperlink{classHuman_a8f37f4c1478eb559e0a3b603a0cea0db}{Human}}.
+Implemented in \mbox{\hyperlink{classDrone_adaf61822f659e8ab22fb633569288752}{Drone}}, \mbox{\hyperlink{classHelicopter_adc65020147c682911cc8f15ab6bb11d6}{Helicopter}}, \mbox{\hyperlink{classRobot_abe629d465798403a706f574b33284659}{Robot}}, and \mbox{\hyperlink{classHuman_a8f37f4c1478eb559e0a3b603a0cea0db}{Human}}.
 
 \mbox{\Hypertarget{classIEntity_a97c799400ce05e2ff2566adc4d7b9634}\label{classIEntity_a97c799400ce05e2ff2566adc4d7b9634}} 
 \index{IEntity@{IEntity}!GetDetails@{GetDetails}}
@@ -181,7 +207,7 @@ The direction of the entity.
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{classDrone_aaf51e8007322a36d481ce9a546099e44}{Drone}}, \mbox{\hyperlink{classRobot_a2d6dd7a322d2d2c0bc1c44566253b9f1}{Robot}}, \mbox{\hyperlink{classHelicopter_aef5fe3c3a5029d6da923f123ed308898}{Helicopter}}, and \mbox{\hyperlink{classHuman_a1355c2de4fce8dea092206861a1805ad}{Human}}.
+Implemented in \mbox{\hyperlink{classDrone_aaf51e8007322a36d481ce9a546099e44}{Drone}}, \mbox{\hyperlink{classHelicopter_aef5fe3c3a5029d6da923f123ed308898}{Helicopter}}, \mbox{\hyperlink{classRobot_a2d6dd7a322d2d2c0bc1c44566253b9f1}{Robot}}, and \mbox{\hyperlink{classHuman_a1355c2de4fce8dea092206861a1805ad}{Human}}.
 
 \mbox{\Hypertarget{classIEntity_a2bfa9ab304ff33b252fbd5a707e42995}\label{classIEntity_a2bfa9ab304ff33b252fbd5a707e42995}} 
 \index{IEntity@{IEntity}!GetId@{GetId}}
@@ -211,7 +237,7 @@ The position of the entity.
 \end{DoxyReturn}
 
 
-Implemented in \mbox{\hyperlink{classDrone_a3d86b956f8722735b1d7e791dea703bc}{Drone}}, \mbox{\hyperlink{classRobot_a0505da0b08d679a828c005879da63b16}{Robot}}, \mbox{\hyperlink{classHelicopter_a8db916733a82877fa98f9223854cdd54}{Helicopter}}, and \mbox{\hyperlink{classHuman_a9c539ec43f19d6b6d7f1322b4ac9d5bc}{Human}}.
+Implemented in \mbox{\hyperlink{classDrone_a3d86b956f8722735b1d7e791dea703bc}{Drone}}, \mbox{\hyperlink{classHelicopter_a8db916733a82877fa98f9223854cdd54}{Helicopter}}, \mbox{\hyperlink{classRobot_a0505da0b08d679a828c005879da63b16}{Robot}}, and \mbox{\hyperlink{classHuman_a9c539ec43f19d6b6d7f1322b4ac9d5bc}{Human}}.
 
 \mbox{\Hypertarget{classIEntity_a6520d2b1dc71d092bab38ef9f5cc9ff4}\label{classIEntity_a6520d2b1dc71d092bab38ef9f5cc9ff4}} 
 \index{IEntity@{IEntity}!GetSpeed@{GetSpeed}}
@@ -241,7 +267,7 @@ Implemented in \mbox{\hyperlink{classRobot_ad199885470ae6e1109153526c21473c5}{Ro
 Get the Strategy Name. 
 
 \begin{DoxyReturn}{Returns}
-Streategy name 
+Strategy name 
 \end{DoxyReturn}
 
 
@@ -266,6 +292,41 @@ Make the entity jump.
 
 Reimplemented in \mbox{\hyperlink{classDrone_a1559fe24a5792ac72ba9d8a4a13a9ec8}{Drone}}.
 
+\mbox{\Hypertarget{classIEntity_a8155e1befaa925dc450b6aee92c2a219}\label{classIEntity_a8155e1befaa925dc450b6aee92c2a219}} 
+\index{IEntity@{IEntity}!Notify@{Notify}}
+\index{Notify@{Notify}!IEntity@{IEntity}}
+\doxysubsubsection{\texorpdfstring{Notify()}{Notify()}}
+{\footnotesize\ttfamily void I\+Entity\+::\+Notify (\begin{DoxyParamCaption}\item[{std\+::string}]{message = {\ttfamily \char`\"{}Empty\char`\"{}} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Iterates through entity\textquotesingle{}s list of observers calls each observer\textquotesingle{}s Update function with a string message. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & string passed into each observers Update function \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classIEntity_a40b0caaefcd247250efd2f12a3335a73}\label{classIEntity_a40b0caaefcd247250efd2f12a3335a73}} 
+\index{IEntity@{IEntity}!Random@{Random}}
+\index{Random@{Random}!IEntity@{IEntity}}
+\doxysubsubsection{\texorpdfstring{Random()}{Random()}}
+{\footnotesize\ttfamily virtual float I\+Entity\+::\+Random (\begin{DoxyParamCaption}\item[{float}]{Min,  }\item[{float}]{Max }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Generates random float in \mbox{[}Min, Max\mbox{]}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Min} & Minimum value of random number \\
+\hline
+{\em Max} & Maximum value of random number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Random float 
+\end{DoxyReturn}
 \mbox{\Hypertarget{classIEntity_a4c109baa4179c28422623a7d3b2e9f82}\label{classIEntity_a4c109baa4179c28422623a7d3b2e9f82}} 
 \index{IEntity@{IEntity}!Rotate@{Rotate}}
 \index{Rotate@{Rotate}!IEntity@{IEntity}}
@@ -433,7 +494,7 @@ Updates the entity\textquotesingle{}s position in the physical system.
 \end{DoxyParams}
 
 
-Reimplemented in \mbox{\hyperlink{classDrone_a6798b0bd297ca7a930016cd2dda0b7ff}{Drone}}, \mbox{\hyperlink{classHelicopter_a40a86f3aee09c2825dfe27851072791c}{Helicopter}}, and \mbox{\hyperlink{classHuman_ad01c878f8084b3146b53262bf7bf9898}{Human}}.
+Reimplemented in \mbox{\hyperlink{classDrone_a6798b0bd297ca7a930016cd2dda0b7ff}{Drone}}, \mbox{\hyperlink{classRobot_a7445d3ac466d8e399f2b528ad8c2a2c8}{Robot}}, \mbox{\hyperlink{classHelicopter_a40a86f3aee09c2825dfe27851072791c}{Helicopter}}, and \mbox{\hyperlink{classHuman_ad01c878f8084b3146b53262bf7bf9898}{Human}}.
 
 
 

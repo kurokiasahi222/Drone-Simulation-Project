@@ -81,8 +81,8 @@ Inheritance diagram for IEntity:</div>
 <map name="IEntity_inherit__map" id="IEntity_inherit__map">
 <area shape="rect" title="Represents an entity in a physical system." alt="" coords="156,5,220,32"/>
 <area shape="rect" href="classDrone.html" title="Represents a drone in a physical system. Drones move using euler integration based on a specified vel..." alt="" coords="5,80,67,107"/>
-<area shape="rect" href="classHelicopter.html" title=" " alt="" coords="91,80,181,107"/>
-<area shape="rect" href="classHuman.html" title=" " alt="" coords="205,80,275,107"/>
+<area shape="rect" href="classHelicopter.html" title="Represents a helicopter in a physical system." alt="" coords="91,80,181,107"/>
+<area shape="rect" href="classHuman.html" title="Represents a human in a physical system." alt="" coords="205,80,275,107"/>
 <area shape="rect" href="classRobot.html" title="Represents a robot in a physical system." alt="" coords="299,80,359,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
@@ -154,17 +154,17 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:a4e8eb64a324e1196be039c5e2a293b7a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a4e8eb64a324e1196be039c5e2a293b7a">Jump</a> (double height)</td></tr>
 <tr class="memdesc:a4e8eb64a324e1196be039c5e2a293b7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Make the entity jump.  <a href="classIEntity.html#a4e8eb64a324e1196be039c5e2a293b7a">More...</a><br /></td></tr>
 <tr class="separator:a4e8eb64a324e1196be039c5e2a293b7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a40b0caaefcd247250efd2f12a3335a73"><td class="memItemLeft" align="right" valign="top"><a id="a40b0caaefcd247250efd2f12a3335a73"></a>
-virtual float&#160;</td><td class="memItemRight" valign="bottom"><b>Random</b> (float Min, float Max)</td></tr>
+<tr class="memitem:a40b0caaefcd247250efd2f12a3335a73"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a40b0caaefcd247250efd2f12a3335a73">Random</a> (float Min, float Max)</td></tr>
+<tr class="memdesc:a40b0caaefcd247250efd2f12a3335a73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates random float in [Min, Max].  <a href="classIEntity.html#a40b0caaefcd247250efd2f12a3335a73">More...</a><br /></td></tr>
 <tr class="separator:a40b0caaefcd247250efd2f12a3335a73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ace22b6af4e4c6804487d4a67d18a2c52"><td class="memItemLeft" align="right" valign="top"><a id="ace22b6af4e4c6804487d4a67d18a2c52"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Attach</b> (<a class="el" href="classIObserver.html">IObserver</a> *observer)</td></tr>
+<tr class="memitem:ace22b6af4e4c6804487d4a67d18a2c52"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#ace22b6af4e4c6804487d4a67d18a2c52">Attach</a> (<a class="el" href="classIObserver.html">IObserver</a> *observer)</td></tr>
+<tr class="memdesc:ace22b6af4e4c6804487d4a67d18a2c52"><td class="mdescLeft">&#160;</td><td class="mdescRight">"Attaches" an observer to the entity by adding it to its list of observers  <a href="classIEntity.html#ace22b6af4e4c6804487d4a67d18a2c52">More...</a><br /></td></tr>
 <tr class="separator:ace22b6af4e4c6804487d4a67d18a2c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa8d8c603d62c13752ea67db807b536e"><td class="memItemLeft" align="right" valign="top"><a id="aaa8d8c603d62c13752ea67db807b536e"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Detach</b> (<a class="el" href="classIObserver.html">IObserver</a> *observer)</td></tr>
+<tr class="memitem:aaa8d8c603d62c13752ea67db807b536e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#aaa8d8c603d62c13752ea67db807b536e">Detach</a> (<a class="el" href="classIObserver.html">IObserver</a> *observer)</td></tr>
+<tr class="memdesc:aaa8d8c603d62c13752ea67db807b536e"><td class="mdescLeft">&#160;</td><td class="mdescRight">"Detaches" observer from the entity by removing it from its list of observers  <a href="classIEntity.html#aaa8d8c603d62c13752ea67db807b536e">More...</a><br /></td></tr>
 <tr class="separator:aaa8d8c603d62c13752ea67db807b536e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8155e1befaa925dc450b6aee92c2a219"><td class="memItemLeft" align="right" valign="top"><a id="a8155e1befaa925dc450b6aee92c2a219"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>Notify</b> (std::string message=&quot;Empty&quot;)</td></tr>
+<tr class="memitem:a8155e1befaa925dc450b6aee92c2a219"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#a8155e1befaa925dc450b6aee92c2a219">Notify</a> (std::string message=&quot;Empty&quot;)</td></tr>
+<tr class="memdesc:a8155e1befaa925dc450b6aee92c2a219"><td class="mdescLeft">&#160;</td><td class="mdescRight">Iterates through entity's list of observers calls each observer's Update function with a string message.  <a href="classIEntity.html#a8155e1befaa925dc450b6aee92c2a219">More...</a><br /></td></tr>
 <tr class="separator:a8155e1befaa925dc450b6aee92c2a219"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
@@ -183,6 +183,74 @@ std::list&lt; <a class="el" href="classIObserver.html">IObserver</a> * &gt;&#160
 <div class="textblock"><p>Represents an entity in a physical system. </p>
 <p>An <a class="el" href="classIEntity.html" title="Represents an entity in a physical system.">IEntity</a> object has a unique ID, a position, a direction, a destination, and details. It also has a speed, which determines how fast the entity moves in the physical system. Subclasses of <a class="el" href="classIEntity.html" title="Represents an entity in a physical system.">IEntity</a> can override the <code>Update</code> function to implement their own movement behavior. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ace22b6af4e4c6804487d4a67d18a2c52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace22b6af4e4c6804487d4a67d18a2c52">&#9670;&nbsp;</a></span>Attach()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IEntity::Attach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIObserver.html">IObserver</a> *&#160;</td>
+          <td class="paramname"><em>observer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>"Attaches" an observer to the entity by adding it to its list of observers </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">observer</td><td><a class="el" href="classObserver.html" title="Concrete observer that subscribes to an entity.">Observer</a> to be attached to entity </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aaa8d8c603d62c13752ea67db807b536e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa8d8c603d62c13752ea67db807b536e">&#9670;&nbsp;</a></span>Detach()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IEntity::Detach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classIObserver.html">IObserver</a> *&#160;</td>
+          <td class="paramname"><em>observer</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>"Detaches" observer from the entity by removing it from its list of observers </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">observer</td><td><a class="el" href="classObserver.html" title="Concrete observer that subscribes to an entity.">Observer</a> to be detatched from entity </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a90348881691a37d5c3d63265ed3463b1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a90348881691a37d5c3d63265ed3463b1">&#9670;&nbsp;</a></span>GetAvailability()</h2>
 
@@ -269,7 +337,7 @@ std::list&lt; <a class="el" href="classIObserver.html">IObserver</a> * &gt;&#160
 <p>Gets the destination of the entity. </p>
 <dl class="section return"><dt>Returns</dt><dd>The destination of the entity. </dd></dl>
 
-<p>Implemented in <a class="el" href="classDrone.html#adaf61822f659e8ab22fb633569288752">Drone</a>, <a class="el" href="classRobot.html#abe629d465798403a706f574b33284659">Robot</a>, <a class="el" href="classHelicopter.html#adc65020147c682911cc8f15ab6bb11d6">Helicopter</a>, and <a class="el" href="classHuman.html#a8f37f4c1478eb559e0a3b603a0cea0db">Human</a>.</p>
+<p>Implemented in <a class="el" href="classDrone.html#adaf61822f659e8ab22fb633569288752">Drone</a>, <a class="el" href="classHelicopter.html#adc65020147c682911cc8f15ab6bb11d6">Helicopter</a>, <a class="el" href="classRobot.html#abe629d465798403a706f574b33284659">Robot</a>, and <a class="el" href="classHuman.html#a8f37f4c1478eb559e0a3b603a0cea0db">Human</a>.</p>
 
 </div>
 </div>
@@ -329,7 +397,7 @@ std::list&lt; <a class="el" href="classIObserver.html">IObserver</a> * &gt;&#160
 <p>Gets the direction of the entity. </p>
 <dl class="section return"><dt>Returns</dt><dd>The direction of the entity. </dd></dl>
 
-<p>Implemented in <a class="el" href="classDrone.html#aaf51e8007322a36d481ce9a546099e44">Drone</a>, <a class="el" href="classRobot.html#a2d6dd7a322d2d2c0bc1c44566253b9f1">Robot</a>, <a class="el" href="classHelicopter.html#aef5fe3c3a5029d6da923f123ed308898">Helicopter</a>, and <a class="el" href="classHuman.html#a1355c2de4fce8dea092206861a1805ad">Human</a>.</p>
+<p>Implemented in <a class="el" href="classDrone.html#aaf51e8007322a36d481ce9a546099e44">Drone</a>, <a class="el" href="classHelicopter.html#aef5fe3c3a5029d6da923f123ed308898">Helicopter</a>, <a class="el" href="classRobot.html#a2d6dd7a322d2d2c0bc1c44566253b9f1">Robot</a>, and <a class="el" href="classHuman.html#a1355c2de4fce8dea092206861a1805ad">Human</a>.</p>
 
 </div>
 </div>
@@ -387,7 +455,7 @@ std::list&lt; <a class="el" href="classIObserver.html">IObserver</a> * &gt;&#160
 <p>Gets the position of the entity. </p>
 <dl class="section return"><dt>Returns</dt><dd>The position of the entity. </dd></dl>
 
-<p>Implemented in <a class="el" href="classDrone.html#a3d86b956f8722735b1d7e791dea703bc">Drone</a>, <a class="el" href="classRobot.html#a0505da0b08d679a828c005879da63b16">Robot</a>, <a class="el" href="classHelicopter.html#a8db916733a82877fa98f9223854cdd54">Helicopter</a>, and <a class="el" href="classHuman.html#a9c539ec43f19d6b6d7f1322b4ac9d5bc">Human</a>.</p>
+<p>Implemented in <a class="el" href="classDrone.html#a3d86b956f8722735b1d7e791dea703bc">Drone</a>, <a class="el" href="classHelicopter.html#a8db916733a82877fa98f9223854cdd54">Helicopter</a>, <a class="el" href="classRobot.html#a0505da0b08d679a828c005879da63b16">Robot</a>, and <a class="el" href="classHuman.html#a9c539ec43f19d6b6d7f1322b4ac9d5bc">Human</a>.</p>
 
 </div>
 </div>
@@ -445,7 +513,7 @@ std::list&lt; <a class="el" href="classIObserver.html">IObserver</a> * &gt;&#160
 </div><div class="memdoc">
 
 <p>Get the Strategy Name. </p>
-<dl class="section return"><dt>Returns</dt><dd>Streategy name </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Strategy name </dd></dl>
 
 <p>Reimplemented in <a class="el" href="classRobot.html#a7ddaea08f503f78b1e17e28dfa451531">Robot</a>.</p>
 
@@ -484,6 +552,86 @@ std::list&lt; <a class="el" href="classIObserver.html">IObserver</a> * &gt;&#160
 </dl>
 
 <p>Reimplemented in <a class="el" href="classDrone.html#a1559fe24a5792ac72ba9d8a4a13a9ec8">Drone</a>.</p>
+
+</div>
+</div>
+<a id="a8155e1befaa925dc450b6aee92c2a219"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8155e1befaa925dc450b6aee92c2a219">&#9670;&nbsp;</a></span>Notify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IEntity::Notify </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>message</em> = <code>&quot;Empty&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Iterates through entity's list of observers calls each observer's Update function with a string message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">message</td><td>string passed into each observers Update function </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a40b0caaefcd247250efd2f12a3335a73"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40b0caaefcd247250efd2f12a3335a73">&#9670;&nbsp;</a></span>Random()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual float IEntity::Random </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>Min</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>Max</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates random float in [Min, Max]. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Min</td><td>Minimum value of random number </td></tr>
+    <tr><td class="paramname">Max</td><td>Maximum value of random number </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Random float </dd></dl>
 
 </div>
 </div>
@@ -816,7 +964,7 @@ std::list&lt; <a class="el" href="classIObserver.html">IObserver</a> * &gt;&#160
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classDrone.html#a6798b0bd297ca7a930016cd2dda0b7ff">Drone</a>, <a class="el" href="classHelicopter.html#a40a86f3aee09c2825dfe27851072791c">Helicopter</a>, and <a class="el" href="classHuman.html#ad01c878f8084b3146b53262bf7bf9898">Human</a>.</p>
+<p>Reimplemented in <a class="el" href="classDrone.html#a6798b0bd297ca7a930016cd2dda0b7ff">Drone</a>, <a class="el" href="classRobot.html#a7445d3ac466d8e399f2b528ad8c2a2c8">Robot</a>, <a class="el" href="classHelicopter.html#a40a86f3aee09c2825dfe27851072791c">Helicopter</a>, and <a class="el" href="classHuman.html#ad01c878f8084b3146b53262bf7bf9898">Human</a>.</p>
 
 </div>
 </div>

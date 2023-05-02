@@ -30,7 +30,7 @@ class DataCollector {
    */
     void toCSV(std::string fileName);
 
-    //No copying
+    // No copying
     DataCollector(DataCollector &other) = delete;
 
     void operator=(const DataCollector &) = delete;
@@ -39,10 +39,10 @@ class DataCollector {
     * @brief Gets the data from the data collector
     * @return The data from the data collector
     */
-    std::vector<std::vector<std::string>> getData(){return data;}
+    std::vector<std::vector<std::string>> getData() {return data;}
 
  private:
-    DataCollector(){};
+    DataCollector() {}
     static DataCollector* instance;
     std::vector<std::vector<std::string>> data;
 };

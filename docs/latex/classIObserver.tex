@@ -2,8 +2,16 @@
 \label{classIObserver}\index{IObserver@{IObserver}}
 
 
-Inheritance diagram for I\+Observer\+:
-\nopagebreak
+Abstract observer that subscribes to an entity.  
+
+
+
+
+{\ttfamily \#include $<$I\+Observer.\+h$>$}
+
+
+
+Inheritance diagram for I\+Observer\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -13,9 +21,38 @@ Inheritance diagram for I\+Observer\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classIObserver_afdfe9e2ebd9aa794142968de574daa9a}\label{classIObserver_afdfe9e2ebd9aa794142968de574daa9a}} 
+virtual \mbox{\hyperlink{classIObserver_afdfe9e2ebd9aa794142968de574daa9a}{$\sim$\+I\+Observer}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classIObserver}{I\+Observer}}. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIObserver_a46eb33164f09b80911bc4e3413f10aec}{Update}} (const std\+::string \&message)=0
+\begin{DoxyCompactList}\small\item\em Abstract function for accepting input from an entity. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Abstract observer that subscribes to an entity. 
+
+This is the interface used by the entity to notify its observers, so that the entity doesn\textquotesingle{}t have to directly reference a concrete observer class. 
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classIObserver_a46eb33164f09b80911bc4e3413f10aec}\label{classIObserver_a46eb33164f09b80911bc4e3413f10aec}} 
-virtual void {\bfseries Update} (const std\+::string \&message)=0
-\end{DoxyCompactItemize}
+\index{IObserver@{IObserver}!Update@{Update}}
+\index{Update@{Update}!IObserver@{IObserver}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily virtual void I\+Observer\+::\+Update (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Abstract function for accepting input from an entity. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & string message from entity \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{classObserver_a36146716c65713f5a9a7b935bed44287}{Observer}}.
+
 
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}

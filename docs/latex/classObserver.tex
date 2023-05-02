@@ -2,8 +2,16 @@
 \label{classObserver}\index{Observer@{Observer}}
 
 
-Inheritance diagram for Observer\+:
-\nopagebreak
+Concrete observer that subscribes to an entity.  
+
+
+
+
+{\ttfamily \#include $<$Observer.\+h$>$}
+
+
+
+Inheritance diagram for Observer\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -12,8 +20,7 @@ Inheritance diagram for Observer\+:
 \end{figure}
 
 
-Collaboration diagram for Observer\+:
-\nopagebreak
+Collaboration diagram for Observer\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -26,9 +33,38 @@ Collaboration diagram for Observer\+:
 \mbox{\Hypertarget{classObserver_ab36a4fe15c6a0165e0289ef1e3325d38}\label{classObserver_ab36a4fe15c6a0165e0289ef1e3325d38}} 
 {\bfseries Observer} (\mbox{\hyperlink{classIController}{I\+Controller}} \&controller)
 \item 
+\mbox{\Hypertarget{classObserver_afcc6b67be6c386f2f3d2c363aa59cb47}\label{classObserver_afcc6b67be6c386f2f3d2c363aa59cb47}} 
+virtual \mbox{\hyperlink{classObserver_afcc6b67be6c386f2f3d2c363aa59cb47}{$\sim$\+Observer}} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \mbox{\hyperlink{classObserver}{Observer}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classObserver_a36146716c65713f5a9a7b935bed44287}{Update}} (const std\+::string \&message) override
+\begin{DoxyCompactList}\small\item\em Takes messages from entities and passes them onto the frontend. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Concrete observer that subscribes to an entity. 
+
+Instances of this observer class subscribe to each entity and pass messages on to the frontend. 
+
+\doxysubsection{Member Function Documentation}
 \mbox{\Hypertarget{classObserver_a36146716c65713f5a9a7b935bed44287}\label{classObserver_a36146716c65713f5a9a7b935bed44287}} 
-void {\bfseries Update} (const std\+::string \&message) override
-\end{DoxyCompactItemize}
+\index{Observer@{Observer}!Update@{Update}}
+\index{Update@{Update}!Observer@{Observer}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily void Observer\+::\+Update (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Takes messages from entities and passes them onto the frontend. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & string message to be displayed by frontend \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{classIObserver_a46eb33164f09b80911bc4e3413f10aec}{I\+Observer}}.
+
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

@@ -41,6 +41,21 @@ void SimulationModel::CreateEntity(JsonObject& entity) {
   IObserver* observer = new Observer(controller);
   myNewEntity->Attach(observer);
 
+
+  // notification: human creation
+  // position[0] = round(((double)position[0])*100.0)/100.0;
+
+  std::string x = position[0].ToString();
+  std::string y = position[1].ToString();
+  std::string z = position[2].ToString();
+  std::string notif = "Entity of type \"" + type + "\" " + name
+                      + " was created at {"
+                          + x.substr(0, x.size()-12)
+                          + ", " + y.substr(0, y.size()-12)
+                          + ", " + z.substr(0, z.size()-12)
+                          + "}";
+  myNewEntity->Notify(notif);
+
   // Call AddEntity to add it to the view
   controller.AddEntity(*myNewEntity);
   entities.push_back(myNewEntity);

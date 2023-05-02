@@ -64,6 +64,7 @@ class SimulationModel {
   void AddFactory(IEntityFactory* factory);
 
   void ExportCSV(std::string fileName);
+
  protected:
   IController& controller;
   std::vector<IEntity*> entities;
