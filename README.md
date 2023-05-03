@@ -36,4 +36,6 @@ Additionally, a "Export CSV" button is provided, which generates a Comma Separat
 Some parts of the sprint went well, and some could have been better. On the plus side, we worked efficiently as a team and achieved our goals ahead of schedule. There was frequent communication between team members, so that we all knew what the others were doing and did not get in one another’s way. The code that we wrote works as expected. On the other hand, our GitHub repository has not been well-organized. There is no convention for naming branches or commits, and many of them are just groups of unrelated changes without a coherent focus. This would make it difficult to go back and debug our code if we had to. For future sprints, we should aim to not only write working code, but also do it in a way that’s methodical and coherent. For example, having each branch focused on one task, rather than many branches that span many unrelated tasks.
 
 ### UML
-![Notifications UML](observer_notifications_uml.png)
+![HW4](https://media.github.umn.edu/user/18696/files/10ca7a67-60d9-427e-bf2d-ce9dec954839)
+
+
