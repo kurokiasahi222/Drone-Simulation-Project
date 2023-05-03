@@ -63,6 +63,10 @@ class SimulationModel {
    */
   void AddFactory(IEntityFactory* factory);
 
+  /**
+   * @brief Export the data to a CSV file
+   * @param fileName - name of the csv file
+   */
   void ExportCSV(std::string fileName);
 
  protected:

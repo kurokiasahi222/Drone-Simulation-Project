@@ -21,15 +21,15 @@ void Robot::Rotate(double angle) {
   direction.z = dirTmp.x * std::sin(angle) + dirTmp.z * std::cos(angle);
 }
 
-void Robot::Update(double dt, std::vector<IEntity*> scheduler){
+void Robot::Update(double dt, std::vector<IEntity*> scheduler) {
   totalTime += dt;
   timeSinceUpdate += dt;
   ReportData();
 }
 
-void Robot::ReportData(){
-  //If it is time to update
-  if (timeSinceUpdate > 0.5){
+void Robot::ReportData() {
+  // If it is time to update
+  if (timeSinceUpdate > 0.5) {
     DataCollector* collector = DataCollector::getInstance();
     // Makes string vector of data
     std::vector<std::string> data = {};
@@ -43,7 +43,7 @@ void Robot::ReportData(){
     data.push_back(delivered ? "1" : "0");
     data.push_back(strategyName);
     data.push_back(std::to_string(totalTime));
-    //Reports it to collector
+    // Reports it to collector
     collector->addData(data);
     timeSinceUpdate = 0;
   }

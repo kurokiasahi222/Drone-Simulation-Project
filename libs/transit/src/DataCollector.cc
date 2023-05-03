@@ -11,11 +11,13 @@ void DataCollector::toCSV(std::string fileName) {
     std::ofstream file;
     std::cout << "toCSV called" << std::endl;
     file.open(fileName);
-    file << "type,id,position,destination,speed,available,pickedUp,delivered,strategy,totalTime" << std::endl;
-    for (auto row : data){
-        for (auto col : row){
+    file << "type,id,position,destination,speed,available"
+    << "pickedUp,delivered,strategy,totalTime"
+    << std::endl;
+    for (auto row : data) {
+        for (auto col : row) {
             file << col;
-            if (col != row.back()){
+            if (col != row.back()) {
                 file << ",";
             }
         }
