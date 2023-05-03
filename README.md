@@ -24,10 +24,13 @@ In order to give more comprehensive information to users and make debugging easi
 
 ### New Feature - Data Collection (Singleton)
 Data collection class using the Singleton design pattern collects and maintains a record of various statistics for each entity. This includes speed and location at different times, total time taken to complete each trip, and total time to reach a robot after it is scheduled. <br/>
-This feature, similar to the notification system, simplifies tracking details that may not be apparent by simply observing the entities. 
+This feature, similar to the notification system, is signitifanctly interesting because it simplifies tracking details that may not be apparent by simply observing the entities. Also, it opens the door to statistical analysis in order to research more efficient algorithms for picking up or delivering robots
+<br/>
+It adds to the existing work by creating a data collection class and using that data collection class inside our Drone and Robot class to collect records. <br/>
+We used singleton pattern for this data collection class. This is because singleton is the best suited when we want to log information. Our application should only have a single instance of a data collection class in order to avoid conflicting request for the same resource.
 <br/>
 To utilize our new data collection class, the schedule.html page features a form located below the map, designed to enable users to conduct experiments within the simulation. The form allows users to select the number of drones and robots required for the simulation, as well as a search strategy. Once the user has specified the relevant parameters and clicked on the "Click to start an experiment" button, the simulation begins automatically, using the specified drones and robots. <br/>
-Additionally, a "Export CSV" button is provided, which generates a Comma Separated Values (CSV) file that contains all of the collected data. This file can be downloaded by the user for further analysis and study.
+Additionally, a "Export CSV" button is provided, which generates a Comma Separated Values (CSV) file that contains all of the collected data. This file can be downloaded by the user for further analysis and study. Also, we have a python file that analyzes the collected data. 
 <br/>
 <br/>
 <img width="1378" alt="Screen Shot 2023-05-02 at 11 29 44 PM" src="https://media.github.umn.edu/user/18696/files/ec2f7a9e-7198-40dc-bc85-c95b99de46d3">
