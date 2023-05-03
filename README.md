@@ -22,9 +22,18 @@ The main focus of this simulation is using drones to deliver robots from one loc
 ### New Feature - Notifications (Observer)
 In order to give more comprehensive information to users and make debugging easier for developers, a scrollable text box on the left logs every action taken by every entity. Whenever an entity is instantiated, an observer subscribes to the entity and displays notifications from the entity onto the screen. Not only is this observer pattern a useful feature in and of itself, it also makes it easy for future developers to also route notifications to other destinations if necessary, such as to the console or through HTTP messages to another host. Although we only attach one observer to each entity in this implementation, the entities are still capable of handling multiple observers, which makes this feature open to extension. 
 
-![Notifications UML](observer_notifications_uml.png)
-
 ### New Feature - Data Collection (Singleton)
+Data collection class using the Singleton design pattern collects and maintains a record of various statistics for each entity. This includes speed and location at different times, total time taken to complete each trip, and total time to reach a robot after it is scheduled. <br/>
+This feature, similar to the notification system, simplifies tracking details that may not be apparent by simply observing the entities. 
+<br/>
+To utilize our new data collection class, the schedule.html page features a form located below the map, designed to enable users to conduct experiments within the simulation. The form allows users to select the number of drones and robots required for the simulation, as well as a search strategy. Once the user has specified the relevant parameters and clicked on the "Click to start an experiment" button, the simulation begins automatically, using the specified drones and robots. <br/>
+Additionally, a "Export CSV" button is provided, which generates a Comma Separated Values (CSV) file that contains all of the collected data. This file can be downloaded by the user for further analysis and study.
+<br/>
+<br/>
+<img width="1378" alt="Screen Shot 2023-05-02 at 11 29 44 PM" src="https://media.github.umn.edu/user/18696/files/ec2f7a9e-7198-40dc-bc85-c95b99de46d3">
 
 ### Sprint Retrospective
 Some parts of the sprint went well, and some could have been better. On the plus side, we worked efficiently as a team and achieved our goals ahead of schedule. There was frequent communication between team members, so that we all knew what the others were doing and did not get in one another’s way. The code that we wrote works as expected. On the other hand, our GitHub repository has not been well-organized. There is no convention for naming branches or commits, and many of them are just groups of unrelated changes without a coherent focus. This would make it difficult to go back and debug our code if we had to. For future sprints, we should aim to not only write working code, but also do it in a way that’s methodical and coherent. For example, having each branch focused on one task, rather than many branches that span many unrelated tasks.
+
+### UML
+![Notifications UML](observer_notifications_uml.png)
