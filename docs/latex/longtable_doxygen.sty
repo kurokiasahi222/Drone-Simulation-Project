@@ -288,4 +288,161 @@
 \def\LT@make@row{%
   \global\expandafter\let\expandafter\LT@save@row
     \csname LT@\romannumeral\c@LT@tables\endcsname
-  \ifx\LT@save@ro
+  \ifx\LT@save@row\relax
+    \LT@blank@row
+  \else
+    {\let\LT@entry\or
+     \if!%
+         \ifcase\expandafter\expandafter\expandafter\LT@cols
+         \expandafter\@gobble\LT@save@row
+         \or
+         \else
+           \relax
+         \fi
+        !%
+     \else
+       \aftergroup\LT@blank@row
+     \fi}%
+  \fi}
+\let\setlongtables\relax
+\def\LT@get@widths{%
+  \setbox\tw@\hbox{%
+    \unhbox\@ne
+    \let\LT@old@row\LT@save@row
+    \global\let\LT@save@row\@empty
+    \count@\LT@cols
+    \loop
+      \unskip
+      \setbox\tw@\lastbox
+    \ifhbox\tw@
+      \LT@def@row
+      \advance\count@\m@ne
+    \repeat}%
+  \ifx\LT@@save@row\@undefined
+    \let\LT@@save@row\LT@save@row
+  \fi}
+\def\LT@def@row{%
+  \let\LT@entry\or
+  \edef\@tempa{%
+    \ifcase\expandafter\count@\LT@old@row
+    \else
+      {1}{0pt}%
+    \fi}%
+  \let\LT@entry\relax
+  \xdef\LT@save@row{%
+    \LT@entry
+    \expandafter\LT@max@sel\@tempa
+    \LT@save@row}}
+\def\LT@max@sel#1#2{%
+  {\ifdim#2=\wd\tw@
+     #1%
+   \else
+     \number\c@LT@chunks
+   \fi}%
+  {\the\wd\tw@}}
+\def\LT@hline{%
+  \noalign{\ifnum0=`}\fi
+    \penalty\@M
+    \futurelet\@let@token\LT@@hline}
+\def\LT@@hline{%
+  \ifx\@let@token\hline
+    \global\let\@gtempa\@gobble
+    \gdef\LT@sep{\penalty-\@medpenalty\vskip\doublerulesep}%
+  \else
+    \global\let\@gtempa\@empty
+    \gdef\LT@sep{\penalty-\@lowpenalty\vskip-\arrayrulewidth}%
+  \fi
+  \ifnum0=`{\fi}%
+  \multispan\LT@cols
+     \unskip\leaders\hrule\@height\arrayrulewidth\hfill\cr
+  \noalign{\LT@sep}%
+  \multispan\LT@cols
+     \unskip\leaders\hrule\@height\arrayrulewidth\hfill\cr
+  \noalign{\penalty\@M}%
+  \@gtempa}
+\def\LT@caption{%
+  \noalign\bgroup
+    \@ifnextchar[{\egroup\LT@c@ption\@firstofone}\LT@capti@n}
+\def\LT@c@ption#1[#2]#3{%
+  \LT@makecaption#1\fnum@table{#3}%
+  \def\@tempa{#2}%
+  \ifx\@tempa\@empty\else
+     {\let\\\space
+     \addcontentsline{lot}{table}{\protect\numberline{\thetable}{#2}}}%
+  \fi}
+\def\LT@capti@n{%
+  \@ifstar
+    {\egroup\LT@c@ption\@gobble[]}%
+    {\egroup\@xdblarg{\LT@c@ption\@firstofone}}}
+\def\LT@makecaption#1#2#3{%
+  \LT@mcol\LT@cols c{\hbox to\z@{\hss\parbox[t]\LTcapwidth{%
+    \sbox\@tempboxa{#1{#2: }#3}%
+    \ifdim\wd\@tempboxa>\hsize
+      #1{#2: }#3%
+    \else
+      \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+    \fi
+    \endgraf\vskip\baselineskip}%
+  \hss}}}
+\def\LT@output{%
+  \ifnum\outputpenalty <-\@Mi
+    \ifnum\outputpenalty > -\LT@end@pen
+      \LT@err{floats and marginpars not allowed in a longtable}\@ehc
+    \else
+      \setbox\z@\vbox{\unvbox\@cclv}%
+      \ifdim \ht\LT@lastfoot>\ht\LT@foot
+        \dimen@\pagegoal
+        \advance\dimen@-\ht\LT@lastfoot
+        \ifdim\dimen@<\ht\z@
+          \setbox\@cclv\vbox{\unvbox\z@\copy\LT@foot\vss}%
+          \@makecol
+          \@outputpage
+          \setbox\z@\vbox{\box\LT@head}%
+        \fi
+      \fi
+      \global\@colroom\@colht
+      \global\vsize\@colht
+      \vbox
+        {\unvbox\z@\box\ifvoid\LT@lastfoot\LT@foot\else\LT@lastfoot\fi}%
+    \fi
+  \else
+    \setbox\@cclv\vbox{\unvbox\@cclv\copy\LT@foot\vss}%
+    \@makecol
+    \@outputpage
+      \global\vsize\@colroom
+    \copy\LT@head\nobreak
+  \fi}
+\def\LT@end@hd@ft#1{%
+  \LT@echunk
+  \ifx\LT@start\endgraf
+    \LT@err
+     {Longtable head or foot not at start of table}%
+     {Increase LTchunksize}%
+  \fi
+  \setbox#1\box\z@
+  \LT@get@widths
+  \LT@bchunk}
+\def\endfirsthead{\LT@end@hd@ft\LT@firsthead}
+\def\endhead{\LT@end@hd@ft\LT@head}
+\def\endfoot{\LT@end@hd@ft\LT@foot}
+\def\endlastfoot{\LT@end@hd@ft\LT@lastfoot}
+\def\LT@startpbox#1{%
+  \bgroup
+    \let\@footnotetext\LT@p@ftntext
+    \setlength\hsize{#1}%
+    \@arrayparboxrestore
+    \vrule \@height \ht\@arstrutbox \@width \z@}
+\def\LT@endpbox{%
+  \@finalstrut\@arstrutbox
+  \egroup
+  \the\LT@p@ftn
+  \global\LT@p@ftn{}%
+  \hfil}
+\def\LT@p@ftntext#1{%
+  \edef\@tempa{\the\LT@p@ftn\noexpand\footnotetext[\the\c@footnote]}%
+  \global\LT@p@ftn\expandafter{\@tempa{#1}}}%
+
+\@namedef{ver@longtable.sty}{2014/10/28 v4.11 Multi-page Table package (DPC) - frozen version for doxygen}
+\endinput
+%%
+%% End of file `longtable.sty'.
