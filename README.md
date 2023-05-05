@@ -16,6 +16,14 @@ This project features a frontend written in HTML and JS which communicates with 
 1. Access the simulation at the URL http://127.0.0.1:8081
 1. Schedule a new trip at the URL http://127.0.0.1:8081/schedule.html
 
+### Alternative way to run using Docker
+link to docker hub: https://hub.docker.com/repository/docker/kurok011/hw4/general 
+<br/>
+Run following commands on terminal
+1. docker pull kurok011/hw4
+2. docker run --rm -it -p 80:8081 kurok011/hw4
+3. Navigate to localhost
+
 ### Simulation
 The main focus of this simulation is using drones to deliver robots from one location to another. Each time a trip is scheduled, a robot is spawned, and a nearby drone must fly to that robot and take it to that destination. The drone by itself can fly high above the buildings, so it travels to its passenger in a straight line (i.e. beeline strategy.) But when carrying a robot, the drone may only travel along roads, which makes for more complicated paths. These paths can be calculated using the A*, Dijkstra, or DFS strategy, according to what the user selected when they scheduled a trip. Once the drone and robot arrive at the destination, the drone drops off the robot and is now available to serve other passengers. Aside from the ride-sharing, the simulation also contains a helicopter which travels through the sky towards a random destination, and humans who travel along roads toward random destinations.
 
