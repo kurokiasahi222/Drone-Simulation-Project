@@ -140,9 +140,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a557af09ca03132837bc6574bca6fbe05"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a557af09ca03132837bc6574bca6fbe05">SetDestination</a> (<a class="el" href="classVector3.html">Vector3</a> des_)</td></tr>
 <tr class="memdesc:a557af09ca03132837bc6574bca6fbe05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the robot's destination.  <a href="classRobot.html#a557af09ca03132837bc6574bca6fbe05">More...</a><br /></td></tr>
 <tr class="separator:a557af09ca03132837bc6574bca6fbe05"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70ff9ff1b758eb5f089f063cc5290a1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a70ff9ff1b758eb5f089f063cc5290a1b">SetDelivered</a> (bool del_)</td></tr>
+<tr class="memdesc:a70ff9ff1b758eb5f089f063cc5290a1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the delivered status of the robot.  <a href="classRobot.html#a70ff9ff1b758eb5f089f063cc5290a1b">More...</a><br /></td></tr>
+<tr class="separator:a70ff9ff1b758eb5f089f063cc5290a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1cb405ec49d47c46f3aa87fde1415b59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#a1cb405ec49d47c46f3aa87fde1415b59">Rotate</a> (double angle)</td></tr>
 <tr class="memdesc:a1cb405ec49d47c46f3aa87fde1415b59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates the robot.  <a href="classRobot.html#a1cb405ec49d47c46f3aa87fde1415b59">More...</a><br /></td></tr>
 <tr class="separator:a1cb405ec49d47c46f3aa87fde1415b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accd62c6cfc1cb2f02264e5f769cf77fb"><td class="memItemLeft" align="right" valign="top"><a id="accd62c6cfc1cb2f02264e5f769cf77fb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classRobot.html#accd62c6cfc1cb2f02264e5f769cf77fb">ReportData</a> ()</td></tr>
+<tr class="memdesc:accd62c6cfc1cb2f02264e5f769cf77fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reports the robot's data to the data collector every half second. <br /></td></tr>
+<tr class="separator:accd62c6cfc1cb2f02264e5f769cf77fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classIEntity"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classIEntity')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classIEntity.html">IEntity</a></td></tr>
 <tr class="memitem:ad59bd0827b3f6e19b82a4e28e5400fe3 inherit pub_methods_classIEntity"><td class="memItemLeft" align="right" valign="top"><a id="ad59bd0827b3f6e19b82a4e28e5400fe3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classIEntity.html#ad59bd0827b3f6e19b82a4e28e5400fe3">IEntity</a> ()</td></tr>
@@ -506,6 +513,42 @@ std::list&lt; <a class="el" href="classIObserver.html">IObserver</a> * &gt;&#160
 
 </div>
 </div>
+<a id="a70ff9ff1b758eb5f089f063cc5290a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70ff9ff1b758eb5f089f063cc5290a1b">&#9670;&nbsp;</a></span>SetDelivered()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Robot::SetDelivered </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>del_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the delivered status of the robot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">del_</td><td>The new delvered status of the robot </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="classIEntity.html#a9fb3cfff4828237f7cda659a573a2f94">IEntity</a>.</p>
+
+</div>
+</div>
 <a id="a557af09ca03132837bc6574bca6fbe05"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a557af09ca03132837bc6574bca6fbe05">&#9670;&nbsp;</a></span>SetDestination()</h2>
 
@@ -698,8 +741,8 @@ std::list&lt; <a class="el" href="classIObserver.html">IObserver</a> * &gt;&#160
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>/home/mill8744/Team-010-25-homework4/libs/transit/include/<a class="el" href="Robot_8h_source.html">Robot.h</a></li>
-<li>/home/mill8744/Team-010-25-homework4/libs/transit/src/Robot.cc</li>
+<li>/home/kurok011/Desktop/Spring2023/CSCI 3081/HW/HW4/Team-010-25-homework4/libs/transit/include/<a class="el" href="Robot_8h_source.html">Robot.h</a></li>
+<li>/home/kurok011/Desktop/Spring2023/CSCI 3081/HW/HW4/Team-010-25-homework4/libs/transit/src/Robot.cc</li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

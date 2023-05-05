@@ -37,9 +37,8 @@ void \mbox{\hyperlink{classSimulationModel_ad409c5965a777ef636114eeef8f9ea48}{Up
 \begin{DoxyCompactList}\small\item\em Update the simulation. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classSimulationModel_a44215da18f82ad591ead5085f6da13f0}{Add\+Factory}} (\mbox{\hyperlink{classIEntityFactory}{I\+Entity\+Factory}} $\ast$factory)
 \begin{DoxyCompactList}\small\item\em Add new factory into the simulation. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classSimulationModel_a8624583b56cf7073137134190931a904}\label{classSimulationModel_a8624583b56cf7073137134190931a904}} 
-void {\bfseries Export\+C\+SV} (std\+::string file\+Name)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classSimulationModel_a8624583b56cf7073137134190931a904}{Export\+C\+SV}} (std\+::string file\+Name)
+\begin{DoxyCompactList}\small\item\em Export the data to a C\+SV file. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -96,6 +95,21 @@ Creates a new simulation entitiy, attaches observer to the entity.
 {\em entity} & Type Json\+Object contain the entity\textquotesingle{}s reference to decide which entity to create \\
 \hline
 \end{DoxyParams}
+\mbox{\Hypertarget{classSimulationModel_a8624583b56cf7073137134190931a904}\label{classSimulationModel_a8624583b56cf7073137134190931a904}} 
+\index{SimulationModel@{SimulationModel}!ExportCSV@{ExportCSV}}
+\index{ExportCSV@{ExportCSV}!SimulationModel@{SimulationModel}}
+\doxysubsubsection{\texorpdfstring{ExportCSV()}{ExportCSV()}}
+{\footnotesize\ttfamily void Simulation\+Model\+::\+Export\+C\+SV (\begin{DoxyParamCaption}\item[{std\+::string}]{file\+Name }\end{DoxyParamCaption})}
+
+
+
+Export the data to a C\+SV file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Name} & -\/ name of the csv file \\
+\hline
+\end{DoxyParams}
 \mbox{\Hypertarget{classSimulationModel_a68a4d4927ec49f6f362f7bfb07a96ddc}\label{classSimulationModel_a68a4d4927ec49f6f362f7bfb07a96ddc}} 
 \index{SimulationModel@{SimulationModel}!ScheduleTrip@{ScheduleTrip}}
 \index{ScheduleTrip@{ScheduleTrip}!SimulationModel@{SimulationModel}}
@@ -149,5 +163,5 @@ Updates the simulation.
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-/home/mill8744/\+Team-\/010-\/25-\/homework4/libs/transit/include/Simulation\+Model.\+h\item 
-/home/mill8744/\+Team-\/010-\/25-\/homework4/libs/transit/src/Simulation\+Model.\+cc\end{DoxyCompactItemize}
+/home/kurok011/\+Desktop/\+Spring2023/\+C\+S\+C\+I 3081/\+H\+W/\+H\+W4/\+Team-\/010-\/25-\/homework4/libs/transit/include/Simulation\+Model.\+h\item 
+/home/kurok011/\+Desktop/\+Spring2023/\+C\+S\+C\+I 3081/\+H\+W/\+H\+W4/\+Team-\/010-\/25-\/homework4/libs/transit/src/Simulation\+Model.\+cc\end{DoxyCompactItemize}

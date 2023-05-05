@@ -11,8 +11,7 @@ Represents an entity in a physical system.
 
 
 
-Inheritance diagram for I\+Entity\+:
-\nopagebreak
+Inheritance diagram for I\+Entity\+:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -62,6 +61,8 @@ virtual void \mbox{\hyperlink{classIEntity_aa473000823f673e9d7b89aed3cd3fc5c}{Se
 \begin{DoxyCompactList}\small\item\em Set the destination of the entity. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classIEntity_a61b62fe1126f473d8ebb524c70c57a39}{Set\+Color}} (std\+::string col\+\_\+)
 \begin{DoxyCompactList}\small\item\em Sets the color of the drone. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classIEntity_a9fb3cfff4828237f7cda659a573a2f94}{Set\+Delivered}} (bool del\+\_\+)
+\begin{DoxyCompactList}\small\item\em Sets the delivered status of the robot. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classIEntity_a4c109baa4179c28422623a7d3b2e9f82}{Rotate}} (double angle)
 \begin{DoxyCompactList}\small\item\em Rotate the entity. \end{DoxyCompactList}\item 
 virtual void \mbox{\hyperlink{classIEntity_a4e8eb64a324e1196be039c5e2a293b7a}{Jump}} (double height)
@@ -73,7 +74,10 @@ void \mbox{\hyperlink{classIEntity_ace22b6af4e4c6804487d4a67d18a2c52}{Attach}} (
 void \mbox{\hyperlink{classIEntity_aaa8d8c603d62c13752ea67db807b536e}{Detach}} (\mbox{\hyperlink{classIObserver}{I\+Observer}} $\ast$observer)
 \begin{DoxyCompactList}\small\item\em \char`\"{}\+Detaches\char`\"{} observer from the entity by removing it from its list of observers \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classIEntity_a8155e1befaa925dc450b6aee92c2a219}{Notify}} (std\+::string message=\char`\"{}Empty\char`\"{})
-\begin{DoxyCompactList}\small\item\em Iterates through entity\textquotesingle{}s list of observers calls each observer\textquotesingle{}s Update function with a string message. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Iterates through entity\textquotesingle{}s list of observers calls each observer\textquotesingle{}s Update function with a string message. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classIEntity_a2b39cf8dd2fe41a338962ad58658d6aa}\label{classIEntity_a2b39cf8dd2fe41a338962ad58658d6aa}} 
+virtual void \mbox{\hyperlink{classIEntity_a2b39cf8dd2fe41a338962ad58658d6aa}{Report\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Report\textquotesingle{}s the entity\textquotesingle{}s data to the data collector. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -384,6 +388,25 @@ Sets the color of the drone.
 
 Reimplemented in \mbox{\hyperlink{classDrone_a779efec4ba4b8b90635656c0a4c313f9}{Drone}}.
 
+\mbox{\Hypertarget{classIEntity_a9fb3cfff4828237f7cda659a573a2f94}\label{classIEntity_a9fb3cfff4828237f7cda659a573a2f94}} 
+\index{IEntity@{IEntity}!SetDelivered@{SetDelivered}}
+\index{SetDelivered@{SetDelivered}!IEntity@{IEntity}}
+\doxysubsubsection{\texorpdfstring{SetDelivered()}{SetDelivered()}}
+{\footnotesize\ttfamily virtual void I\+Entity\+::\+Set\+Delivered (\begin{DoxyParamCaption}\item[{bool}]{del\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Sets the delivered status of the robot. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em del\+\_\+} & The new delvered status of the robot \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{classRobot_a70ff9ff1b758eb5f089f063cc5290a1b}{Robot}}.
+
 \mbox{\Hypertarget{classIEntity_aa473000823f673e9d7b89aed3cd3fc5c}\label{classIEntity_aa473000823f673e9d7b89aed3cd3fc5c}} 
 \index{IEntity@{IEntity}!SetDestination@{SetDestination}}
 \index{SetDestination@{SetDestination}!IEntity@{IEntity}}
@@ -500,4 +523,4 @@ Reimplemented in \mbox{\hyperlink{classDrone_a6798b0bd297ca7a930016cd2dda0b7ff}{
 
 The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
 \item 
-/home/mill8744/\+Team-\/010-\/25-\/homework4/libs/transit/include/I\+Entity.\+h\end{DoxyCompactItemize}
+/home/kurok011/\+Desktop/\+Spring2023/\+C\+S\+C\+I 3081/\+H\+W/\+H\+W4/\+Team-\/010-\/25-\/homework4/libs/transit/include/I\+Entity.\+h\end{DoxyCompactItemize}

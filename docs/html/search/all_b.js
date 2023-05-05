@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['pathstrategy_47',['PathStrategy',['../classPathStrategy.html',1,'PathStrategy'],['../classPathStrategy.html#a8b73e5f41250a1b53bfeed777103fc70',1,'PathStrategy::PathStrategy()']]],
-  ['print_48',['Print',['../classVector3.html#ab4e0ba9b985cd5cf0e8960d1e449581e',1,'Vector3']]]
+  ['observer_43',['Observer',['../classObserver.html',1,'']]],
+  ['operator_2a_44',['operator*',['../classVector3.html#a4968b100aa24e624d7926cee91498496',1,'Vector3']]],
+  ['operator_2b_45',['operator+',['../classVector3.html#a9228f34c33c47c753442a5402aaaf0ba',1,'Vector3']]],
+  ['operator_2d_46',['operator-',['../classVector3.html#a99f85da3057603ccb39f6eb763034f04',1,'Vector3']]],
+  ['operator_2f_47',['operator/',['../classVector3.html#a212b45ab1cd8d9a7f9b37d596d19544d',1,'Vector3']]]
 ];
