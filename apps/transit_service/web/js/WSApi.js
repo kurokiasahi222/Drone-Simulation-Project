@@ -1,7 +1,7 @@
 function WSApi(host = null) {
     var self = this;
     var hostname = host != null ? host : location.hostname+(location.port ? ':'+location.port: '');
-    this.socket = new WebSocket("ws://" + hostname, "web_server");
+    this.socket = new WebSocket("wss://" + hostname, "web_server");
     this.callbacks = {};
     this.requestId = 0;
     this.id = null;
