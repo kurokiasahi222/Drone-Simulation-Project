@@ -50,6 +50,6 @@ Some parts of the sprint went well, and some could have been better. On the plus
 ![HW4](https://media.github.umn.edu/user/18696/files/c0dd1f36-8e32-4d15-a9e9-89dbd0c0a6f0)
 
 ### Video presentation
-Link to our video presentation and demo [here](https://youtu.be/SVIainaNuyE).
+Link to our video presentation and demo [here](https://www.youtube.com/watch?v=SVIainaNuyE).
 
 
