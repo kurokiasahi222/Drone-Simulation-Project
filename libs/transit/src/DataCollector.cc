@@ -1,0 +1,36 @@
+#include "DataCollector.h"
+
+#include <iostream>
+#include <fstream>
+
+
+void DataCollector::addData(std::vector<std::string> newData) {
+    data.push_back(newData);
+}
+void DataCollector::toCSV(std::string fileName) {
+    std::ofstream file;
+    std::cout << "toCSV called" << std::endl;
+    file.open(fileName);
+    file << "type,id,position,destination,speed,available"
+    << "pickedUp,delivered,strategy,totalTime"
+    << std::endl;
+    for (auto row : data) {
+        for (auto col : row) {
+            file << col;
+            if (col != row.back()) {
+                file << ",";
+            }
+        }
+        file << std::endl;
+    }
+    file.close();
+}
+
+DataCollector* DataCollector::instance = nullptr;
+
+DataCollector* DataCollector::getInstance() {
+    if (instance == nullptr) {
+        instance = new DataCollector();
+    }
+    return instance;
+}
