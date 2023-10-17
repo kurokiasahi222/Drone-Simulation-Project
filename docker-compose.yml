@@ -1,0 +1,14 @@
+services:
+  drone_sim:
+    image: kurok011/drone_sim
+    container_name: drone_sim
+
+    volumes:
+      - ${PWD}/libs/transit:/home/user/sim/libs/transit
+      - ${PWD}/apps:/home/user/sim/apps
+
+    ports: 
+      - 8081:8081
+
+    working_dir: /app
+    build: .

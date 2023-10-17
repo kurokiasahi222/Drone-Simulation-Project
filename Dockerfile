@@ -15,6 +15,7 @@ COPY . /run
 # 3 - CD into new directory for running container
 WORKDIR /run
 # 4 - compile code
+RUN make clean
 RUN make -j
 # 5 - run command in docker container once image ran
 CMD ["./build/bin/transit_service", "8081", "apps/transit_service/web/"]
