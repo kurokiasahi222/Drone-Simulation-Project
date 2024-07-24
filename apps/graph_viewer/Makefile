@@ -10,7 +10,13 @@ BUILD_DIR = $(ROOT_DIR)/build/apps/$(APP_NAME)
 EXEFILE = $(ROOT_DIR)/build/bin/$(APP_NAME)
 INCLUDES = -I.. -I$(DEP_DIR)/include -Isrc -I. -I$(DEP_DIR)/include -Iinclude -I. -I$(ROOT_DIR)/libs/transit/include -I$(ROOT_DIR)/libs/routing/include
 LIBDIRS = -L$(DEP_DIR)/lib -L$(ROOT_DIR)/build/lib
-LIBS = -lrouting -lCppWebServer -lwebsockets -lssl -lcrypto -lz -lpthread
+WEBSOCKET_VERSION_MAJOR:=$(shell pkg-config --modversion libssl | cut -d '.' -f 1)
+ifeq "$(WEBSOCKET_VERSION_MAJOR)" "3"
+	WEBSOCKET_LIB:= -lwebsockets22
+else
+	WEBSOCKET_LIB:= -lwebsockets20
+endif
+LIBS = -lrouting -lCppWebServer $(WEBSOCKET_LIB) -lssl -lcrypto -lz -lpthread
 SOURCES = $(shell find src -name '*.cc')
 OBJFILES = $(addprefix $(BUILD_DIR)/, $(SOURCES:.cc=.o))
 
