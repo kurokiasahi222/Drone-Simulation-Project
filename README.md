@@ -1,14 +1,21 @@
+# Drone Simulation System
 
-# Team-010-25-homework4
-Henry Zhao - zhao1057, 
-Kinsey Miller - mill8744, 
-Ash Kuroki - kurok011, 
-Joel Nathe - nathe031
+![Screenshot 2024-07-24 at 16 37 55](https://github.com/user-attachments/assets/ca31738c-282d-4e02-b95a-9f22f8b7771b)
 
 ### Project Overview
 This project features a frontend written in HTML and JS which communicates with lower-level algorithms written in C++. When it is run, it provides two web-pages: index.html which displays a 3D rendering, and schedule.html which provides a user interface for scheduling trips. The rendering consists of a background modeled after the UMN-TC campus, where various entities are either spawned automatically when the simulation starts or generated at the user’s request. The two main entities are drones and robots, which simulate a ride-sharing environment where drones are delivered by robots to their destinations. 
 
-### How to run
+Navigate to <a href="https://drone-38eq.onrender.com">https://drone-38eq.onrender.com</a> and you should see a visualization. <br>
+Navigate to <a href="https://drone-38eq.onrender.com/schedule.html">https://drone-38eq.onrender.com/schedule.html</a> and you should see a page to schedule the trips.
+
+Thi was completed as a semester project for CSCI 3081 at the University of Minnesota, and the project was contributed by
+- Henry Zhao
+- Kinsey Miller
+- Ash Kuroki
+- Joel Nathe
+- And CSCI 3081 teaching staffs.
+
+### Run Locally
 1. Open a Terminal window
 1. Enter `cd <path to the folder containing this README>`
 1. Compile the code using `make -j`
@@ -16,12 +23,12 @@ This project features a frontend written in HTML and JS which communicates with 
 1. Access the simulation at the URL http://127.0.0.1:8081
 1. Schedule a new trip at the URL http://127.0.0.1:8081/schedule.html
 
-### Alternative way to run using Docker
+### Using Docker
 link to docker hub: https://hub.docker.com/repository/docker/kurok011/hw4/general 
 <br/>
 Run following commands on terminal
-1. docker pull kurok011/hw4
-2. docker run --rm -it -p 80:8081 kurok011/hw4
+1. docker pull kurok011/drone
+2. docker run --rm -it -p 80:8081 kurok011/drone
 3. Navigate to localhost
 
 ### Simulation
