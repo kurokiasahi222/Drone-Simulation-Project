@@ -7,7 +7,7 @@ function WSApi(host = null) {
     // Construct the WebSocket URL using the host from the current URL
     const wsUrl = `${wsProtocol}//${url.host}`;
     console.log(wsUrl);
-    this.socket = new WebSocket(wsUrl);
+    this.socket = new WebSocket(wsUrl, "web_server");
     this.callbacks = {};
     this.requestId = 0;
     this.id = null;
