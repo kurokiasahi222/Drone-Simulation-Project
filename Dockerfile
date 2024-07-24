@@ -4,6 +4,7 @@
 FROM --platform=linux/amd64 ubuntu:20.04
 
 RUN apt-get update && apt-get install -y \
+    pkg-config \
     build-essential \  
     libssl-dev \
     zlib1g-dev
